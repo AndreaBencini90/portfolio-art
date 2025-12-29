@@ -1,0 +1,52 @@
+/* CONTACT PAGE */
+.contact-section {
+  padding: 4rem 0;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.contact-card {
+  background-color: rgb(255 255 255 / 1);
+  padding: 1.5rem;
+}
+
+.contact-card-title {
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.contact-card-text {
+  margin-top: 0.75rem;
+  color: rgb(71 85 105 / 1);
+  font-size: 1rem;
+  line-height: 1.625;
+}
+
+.contact-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: rgb(15 23 42 / 1);
+  font-weight: 500;
+}
+
+.contact-note {
+  margin-top: 2rem;
+}
+
+.contact-note-text {
+  color: rgb(71 85 105 / 1);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 42rem;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}

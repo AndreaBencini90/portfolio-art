@@ -1,0 +1,21 @@
+{
+  "works.title": "Works",
+
+  "works.intro": "The works are organized into collections, each originating from a generative process and a specific conceptual investigation.",
+
+  "works.collections.title": "Collections",
+
+  "works.collections.intro": "Each collection brings together a series of works that explore the same structure, varying parameters, relationships, and formal possibilities.",
+
+  "works.collection.loop-space-time.title": "Loop SpaceTime-Quantum Series",
+  "works.collection.loop-space-time.text": "A research into emergent structures where space is not given, but arises from relationships between elements.",
+
+  "works.collection.toridallattice.title": "Toroidal Lattice",
+  "works.collection.toridallattice.text": "A space that folds back onto itself, abolishing the boundary between inside and outside and questioning the idea of origin.",
+
+  "works.collection.spinnetwork.title": "Spin Network Studies",
+  "works.collection.spinnetwork.text": "Studies of discrete geometries inspired by Loop Quantum Gravity models, where continuity emerges from finite relations.",
+
+  "works.collection.comingsoon.title": "New collection",
+  "works.collection.comingsoon.text": "A new research project is currently under development."
+}

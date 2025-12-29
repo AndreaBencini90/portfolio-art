@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="it" data-base="./">
+  <head>
+    <title>Portfolio Artistico - Contact</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="index,follow" />
+    <meta name="generator" content="GrapesJS Studio" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./contact-style.css" />
+  </head>
+
+  <body class="gjs-t-body body">
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-container">
+        <a href="index.html" class="gjs-t-link group brand-link">
+          <div class="group-hover:ring-slate-900/20 brand-mark">AB</div>
+          <span class="brand-name">Andrea Bencini</span>
+        </a>
+
+        <nav class="primary-nav">
+          <a href="index.html" class="gjs-t-link nav-link" data-i18n="nav.home">Home</a>
+          <a href="works.html" class="gjs-t-link nav-link" data-i18n="nav.gallery">Works</a>
+          <a href="bio.html" class="gjs-t-link nav-link" data-i18n="nav.biography">Biography</a>
+          <a href="contact.html" class="gjs-t-link nav-link" data-i18n="nav.contact">Contact</a>
+        </nav>
+
+        <div class="lang-switch" aria-label="Language switch">
+          <button type="button" class="lang-btn" data-lang="en">ENG</button>
+          <button type="button" class="lang-btn" data-lang="it">ITA</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- HERO -->
+      <section class="hero-section">
+        <div class="hero-container">
+          <h1 class="gjs-t-h1 hero-title" data-i18n="contact.title">Contact</h1>
+          <p class="hero-subtitle" data-i18n="contact.subtitle">
+            If you are a curator, gallery, or collector, feel free to reach out for inquiries, pricing, or collaborations.
+          </p>
+
+          <div class="hero-actions">
+            <a class="gjs-t-button primary-button" href="mailto:bencini.art@gmail.com">
+              <span data-i18n="contact.ctaEmail">Email me</span>
+              <img
+                alt=""
+                width="16"
+                height="16"
+                src="https://api.iconify.design/lucide-arrow-right.svg?color=white"
+                class="icon-arrow-right"
+              />
+            </a>
+
+            <a class="gjs-t-link secondary-link" href="works.html" data-i18n="contact.ctaWorks">
+              View works
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT CARDS -->
+      <section class="contact-section">
+        <div class="contact-grid">
+          <!-- Email -->
+          <div class="gjs-t-border contact-card">
+            <h2 class="gjs-t-h2 contact-card-title" data-i18n="contact.emailTitle">Email</h2>
+            <p class="contact-card-text" data-i18n="contact.emailText">
+              For inquiries, availability, and pricing.
+            </p>
+            <a class="gjs-t-link contact-link" href="mailto:bencini.art@gmail.com">
+              bencini.art@gmail.com
+            </a>
+          </div>
+
+          <!-- Instagram -->
+          <div class="gjs-t-border contact-card">
+            <h2 class="gjs-t-h2 contact-card-title" data-i18n="contact.instagramTitle">Instagram</h2>
+            <p class="contact-card-text" data-i18n="contact.instagramText">
+              Studio updates, works in progress, and releases.
+            </p>
+            <a class="gjs-t-link contact-link" href="https://www.instagram.com/bencini.art" target="_blank" rel="noopener">
+              @bencini.art
+            </a>
+          </div>
+
+          <!-- Notion -->
+          <div class="gjs-t-border contact-card">
+            <h2 class="gjs-t-h2 contact-card-title" data-i18n="contact.substackTitle">Notion</h2>
+            <p class="contact-card-text" data-i18n="contact.notesText">
+              Notes and essays on latest works.             
+            </p>
+            <a class="gjs-t-link contact-link" href="https://www.notion.so/andrea-bencini/Welcome-to-the-artistic-space-of-Andrea-Bencini-2ad8ce58b0a68044b8dff4314e4d8214" target="_blank" rel="noopener">
+              Read the notes
+            </a>
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <p class="footer-text">
+          © <span id="yearSpan">2025</span>
+          <span data-i18n="footer.rights">Andrea Bencini. All rights reserved.</span>
+        </p>
+
+        <div class="footer-links">
+          <a href="https://www.instagram.com/bencini.art" class="gjs-t-link footer-link" data-i18n="footer.instagram">Instagram</a>
+          <a href="mailto:bencini.art@gmail.com" class="gjs-t-link footer-link" data-i18n="footer.email">Email</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

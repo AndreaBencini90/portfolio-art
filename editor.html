@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GrapesJS Editor</title>
+
+  <!-- CSS GrapesJS -->
+  <link rel="stylesheet" href="https://unpkg.com/grapesjs/dist/css/grapes.min.css">
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    #gjs {
+      height: 100vh;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- CONTENITORE OBBLIGATORIO -->
+  <div id="gjs"></div>
+
+  <!-- JS GrapesJS -->
+  <script src="https://unpkg.com/grapesjs"></script>
+
+  <script>
+    console.log('▶ Avvio editor GrapesJS');
+
+    // Inizializza GrapesJS
+    const editor = grapesjs.init({
+      container: '#gjs',
+      height: '100vh',
+      storageManager: false
+    });
+
+    // Percorso assoluto calcolato automaticamente
+    const projectUrl = new URL('./gjs-project.grapesjs', window.location.href).toString();
+    console.log('▶ Carico progetto da:', projectUrl);
+
+    // Caricamento progetto
+    fetch(projectUrl + '?v=' + Date.now())
+      .then(res => {
+        console.log('▶ Fetch status:', res.status);
+        if (!res.ok) {
+          throw new Error('HTTP ' + res.status + ' - file non trovato');
+        }
+        return res.json();
+      })
+      .then(projectData => {
+        editor.loadProjectData(projectData);
+        console.log('✅ Progetto GrapesJS caricato correttamente');
+      })
+      .catch(err => {
+        console.error('❌ Errore caricamento progetto:', err);
+
+        // Mostra qualcosa a schermo invece della pagina bianca
+        editor.setComponents(`
+          <div style="padding:40px;font-family:sans-serif">
+            <h1>Editor avviato</h1>
+            <p>⚠ Il progetto <code>gjs-project.grapesjs</code> non è stato caricato.</p>
+            <p>Apri la <strong>Console (F12)</strong> per vedere l’errore.</p>
+          </div>
+        `);
+      });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "bio.title": "Biography",
+
+  "bio.intro": "Andrea Bencini (Florence, April 20, 1990) is a data scientist and artist with a background in statistics and a research thesis focused on graph selection in high-dimensional spaces.",
+
+  "bio.origins.title": "Origins and education",
+  "bio.origins.text": "His path weaves together the analysis of complex systems, artificial intelligence, and reflections on the structures of space and time.",
+
+  "bio.research.title": "Research and work as a data scientist",
+  "bio.research.text1": "Throughout his career, he has worked as a data scientist across diverse fields, from transportation engineering to finance and healthcare, investigating hidden relationships between variables and complex systems and translating them into mathematical and visual models.",
+  "bio.research.text2": "This cross-disciplinary experience now informs his artistic practice, where data becomes form.",
+
+  "bio.quantum.title": "Geometries and Loop Quantum Gravity",
+  "bio.quantum.text": "In his recent work, he explores emerging geometries inspired by Loop Quantum Gravity.",
+
+  "bio.poetics.title": "Poetics",
+  "bio.poetics.text1": "His poetics arise from a suspended space, where forms exist only as vibrations of possibility.",
+  "bio.poetics.text2": "From this uncertain territory, artworks surface, allowing code to reveal a single form among many. It is the movement of creation itself, where each idea exists as potential until something calls it into presence.",
+  "bio.poetics.text3": "Thus, the image becomes the place where the possible concentrates, gathers courage, and finally appears."
+}

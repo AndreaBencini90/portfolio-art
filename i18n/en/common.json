@@ -1,0 +1,28 @@
+{
+  "nav.home": "Home",
+  "nav.biography": "Biography",
+  "nav.gallery": "Works",
+  "nav.contact": "Contact",
+
+  "hero.title": "Welcome to the artistic space of Andrea Bencini",
+  "hero.subtitle": "My work investigates invisible relations that shape form: networks, tensions, and patterns through which reality becomes visible.",
+
+  "cta.exploreGallery": "Explore the gallery",
+  "cta.contactMe": "Contact me",
+
+  "gallery.title": "Gallery",
+  "gallery.scrollLeft": "Scroll left",
+  "gallery.scrollRight": "Scroll right",
+
+  "lightbox.preview": "Artwork preview",
+  "lightbox.close": "Close",
+  "lightbox.imageAlt": "Artwork full view",
+  "lightbox.hint": "Click outside or press ESC to close.",
+  "lightbox.prev": "Previous",
+  "lightbox.next": "Next",
+
+  "footer.rights": "Andrea Bencini. All rights reserved.",
+  "footer.instagram": "Instagram",
+  "footer.behance": "Behance",
+  "footer.email": "Email"
+}

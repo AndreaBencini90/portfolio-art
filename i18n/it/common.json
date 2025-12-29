@@ -1,0 +1,35 @@
+{
+  "nav.home": "Home",
+  "nav.biography": "Biografia",
+  "nav.gallery": "Collezioni",
+  "nav.contact": "Contatti",
+
+  "hero.title": "Benvenuto nello spazio artistico di Andrea Bencini",
+  "hero.subtitle": "Il mio lavoro esplora le relazioni invisibili che danno forma alle cose, le reti, le tensioni e i pattern attraverso cui la realtà diventa visibile.",
+
+  "cta.exploreGallery": "Esplora la galleria",
+  "cta.contactMe": "Contattami",
+
+  "gallery.title": "Galleria",
+  "gallery.scrollLeft": "Scorri a sinistra",
+  "gallery.scrollRight": "Scorri a destra",
+
+  "artwork.open1": "Apri opera 1",
+  "artwork.open2": "Apri opera 2",
+  "artwork.open3": "Apri opera 3",
+  "artwork.open4": "Apri opera 4",
+  "artwork.open5": "Apri opera 5",
+  "artwork.open6": "Apri opera 6",
+
+  "lightbox.preview": "Anteprima opera",
+  "lightbox.close": "Chiudi",
+  "lightbox.imageAlt": "Opera a schermo intero",
+  "lightbox.hint": "Clicca all’esterno o premi ESC per chiudere.",
+  "lightbox.prev": "Precedente",
+  "lightbox.next": "Successivo",
+
+  "footer.rights": "Andrea Bencini. Tutti i diritti riservati.",
+  "footer.instagram": "Instagram",
+  "footer.behance": "Behance",
+  "footer.email": "Email"
+}
