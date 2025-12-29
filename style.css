@@ -1069,3 +1069,38 @@ video {
 .bio-text {
   margin-bottom: 1.25rem;
 }
+
+/* === MOBILE: language switch pill più in basso === */
+@media (max-width: 480px) {
+  .brand-link { display: none; }
+
+  .lang-switch {
+    position: fixed;
+    top: 72px;              /* 👈 lo spostiamo più in basso */
+    right: 12px;
+    z-index: 70;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 5px 9px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(226, 232, 240, 1);
+  }
+
+  .lang-switch .lang-btn {
+    background: none;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    padding: 0 2px;
+    opacity: 0.55;
+  }
+
+  .lang-switch .lang-btn.is-active {
+    opacity: 1;
+  }
+}

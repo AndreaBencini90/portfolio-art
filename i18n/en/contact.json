@@ -1,8 +1,15 @@
 {
   "contact.title": "Contact",
-  "contact.subtitle": "If you are a curator, gallery, or collector, feel free to reach out for inquiries, pricing, or collaborations.",
-  "contact.emailText":"For inquiries, availability, and pricing.",
-  "contact.notesText": "Notes and essays on latest works."
+  "contact.subtitle": "If you are a curator, a gallery, or a collector, feel free to contact me for information, availability, pricing, or collaborations.",
+  "contact.ctaEmail": "Get in touch",
+  "contact.ctaWorks": "View works",
 
+  "contact.emailTitle": "Email",
+  "contact.emailText": "For inquiries, availability, and pricing information.",
 
+  "contact.instagramTitle": "Instagram",
+  "contact.instagramText": "Studio updates, works in progress, and new releases.",
+
+  "contact.substackTitle": "Notion",
+  "contact.notesText": "Notes on recent works"
 }
