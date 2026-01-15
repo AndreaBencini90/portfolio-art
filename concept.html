@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="it" data-base="./">
+  <head>
+    <title data-i18n="concept.meta.title">Concept | Andrea Bencini</title>
+    <script src="./analytics.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index,follow" />
+
+    <meta
+      name="description"
+      content="Concept e poetica: arte generativa, relazioni, incertezza, sistemi complessi, Loop Quantum Gravity."
+      data-i18n-attr="content"
+      data-i18n="concept.meta.description"
+    />
+
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./style.css" />
+
+    <!-- Page-only tweaks (optional): keeps intro visually distinct without touching global CSS -->
+    <style>
+      .concept-hero { padding-top: 8px; }
+      .concept-hero .bio-intro { max-width: 42rem; }
+      .concept-divider { margin: 26px 0; border: 0; border-top: 1px solid rgba(0,0,0,0.08); }
+      .concept-outline { margin: 18px 0 26px; padding: 0; list-style: none; display: flex; gap: 14px; flex-wrap: wrap; }
+      .concept-outline a { text-decoration: none; border-bottom: 1px solid rgba(0,0,0,0.25); padding-bottom: 2px; }
+      .concept-outline a:hover { border-bottom-color: rgba(0,0,0,0.6); }
+      .concept-block { margin-top: 26px; }
+      .concept-block:first-of-type { margin-top: 0; }
+    </style>
+  </head>
+
+  <body class="gjs-t-body body">
+    <!-- =========================
+         HEADER
+         ========================= -->
+    <header class="header">
+      <div class="header-container">
+        <!-- Brand -->
+        <a href="index.html" class="gjs-t-link group brand-link">
+          <div class="brand-mark">AB</div>
+          <span class="brand-name">Andrea Bencini</span>
+        </a>
+
+        <!-- Menu -->
+        <nav class="primary-nav">
+          <a href="index.html" class="gjs-t-link nav-link" data-i18n="nav.home">Home</a>
+          <a href="index.html#galleria" class="gjs-t-link nav-link" data-i18n="nav.gallery">Gallery</a>
+          <a href="concept.html" class="gjs-t-link nav-link nav-link-active" data-i18n="nav.concept">Concept</a>
+          <a href="bio.html" class="gjs-t-link nav-link" data-i18n="nav.biography">Biografia</a>
+          <a href="contact.html" class="gjs-t-link nav-link" data-i18n="nav.contact">Contatti</a>
+        </nav>
+
+        <!-- Language switch -->
+        <div class="lang-switch" aria-label="Language switch">
+          <button type="button" class="lang-btn" data-lang="en">ENG</button>
+          <button type="button" class="lang-btn" data-lang="it">ITA</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- =========================
+         MAIN
+         ========================= -->
+    <main class="main-content">
+      <section class="bio-section concept-hero">
+        <div class="bio-container">
+          <!-- Title -->
+          <h1 class="gjs-t-h1 bio-title" data-i18n="concept.title">Concept</h1>
+
+          <!-- Intro (make it feel like a statement) -->
+          <p class="bio-intro" data-i18n="concept.subtitle">
+            Relazioni, incertezza e geometrie emergenti: un linguaggio visivo tra arte e scienza.
+          </p>
+
+          <!-- Quick internal navigation (optional but useful) -->
+          <hr class="concept-divider" />
+
+          <!-- =========================
+               CONCEPT (rewritten, clean)
+               ========================= -->
+
+          <div id="relazioni" class="concept-block">
+            <p class="bio-text" data-i18n="concept.p1">
+              Il mio lavoro nasce dallo studio delle relazioni.
+            </p>
+
+            <p class="bio-text" data-i18n="concept.p2">
+              La mia formazione come data scientist mi ha portato ad analizzare sistemi complessi attraverso grafi, reti e modelli probabilistici. Questo modo di pensare, più che una tecnica, è diventato la struttura del mio linguaggio artistico.
+            </p>
+          </div>
+
+          <div id="processo" class="concept-block">
+            <p class="bio-text" data-i18n="concept.p3">
+              L’opera prende forma attraverso configurazioni relazionali: non come rappresentazione di oggetti isolati, ma come costruzione di strutture in cui gli elementi esistono in funzione delle loro interazioni. Il lavoro non procede per immagini predefinite, ma per processi.
+            </p>
+
+            <p class="bio-text" data-i18n="concept.p4">
+              Concetti come incertezza, emergenza e probabilità non vengono illustrati, ma agiti. Ogni opera è il risultato di un equilibrio temporaneo, una possibile configurazione all’interno di un sistema più ampio.
+            </p>
+          </div>
+
+          <div id="lqg" class="concept-block">
+            <h2 class="gjs-t-h2 bio-subtitle" data-i18n="concept.section1.title">Loop Quantum Gravity</h2>
+            <p class="bio-text" data-i18n="concept.section1.p1">
+              La serie Loop Quantum Gravity nasce da un dialogo con la fisica teorica e con l’idea che lo spazio-tempo non sia una struttura continua, ma emerga da relazioni discrete. Attraverso grafi generativi, le opere costruiscono mappe in cui i nodi rappresentano interazioni fondamentali, non entità autonome.
+            </p>
+          </div>
+
+          <div id="ponte" class="concept-block">
+            <h2 class="gjs-t-h2 bio-subtitle" data-i18n="concept.section2.title">Relazioni</h2>
+            <p class="bio-text" data-i18n="concept.section2.p1">
+              Utilizzo strutture concettuali contemporanee per interrogare come i sistemi prendono forma, si organizzano e si trasformano.
+            </p>
+
+            <p class="bio-text bio-poetics" data-i18n="concept.closing">
+              Ogni opera è una configurazione in cui le entità assumono valore attraverso le relazioni all’interno di un sistema più ampio.           </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================
+         FOOTER
+         ========================= -->
+    <footer class="footer">
+      <div class="footer-container">
+        <p class="footer-text">
+          © <span id="yearSpan">2025</span>
+          <span data-i18n="footer.rights">Andrea Bencini. Tutti i diritti riservati.</span>
+        </p>
+
+        <div class="footer-links">
+          <a
+            href="https://www.instagram.com/bencini.art"
+            class="footer-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-i18n="footer.instagram"
+            >Instagram</a
+          >
+          <a href="#" class="footer-link" data-i18n="footer.behance">Behance</a>
+          <a href="mailto:bencini.art@gmail.com" class="footer-link" data-i18n="footer.email">Email</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="./app.js"></script>
+  </body>
+</html>

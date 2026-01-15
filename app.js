@@ -37,8 +37,9 @@ async function loadTranslations(lang) {
     'bio.json',
     'common.json',
     "contact.json",
+    "concept.json",
     'loop-space-time.json',
-    'home.json',
+    
     'works.json',
     
   ];

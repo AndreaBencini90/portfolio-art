@@ -1104,3 +1104,25 @@ video {
     opacity: 1;
   }
 }
+
+.seo-text {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+.bio-intro {
+  font-family: "Playfair Display", serif;
+  font-size: 1.45rem;
+  line-height: 1.6;
+  margin: 1.5rem 0 2.5rem;
+  max-width: 40rem;
+  color: #1a1a1a;
+  font-weight: 500;
+}

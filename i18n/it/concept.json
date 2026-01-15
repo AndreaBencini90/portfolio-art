@@ -1,0 +1,32 @@
+{
+  "nav.home": "Home",
+  "nav.gallery": "Galleria",
+  "nav.concept": "Concept",
+  "nav.biography": "Biografia",
+  "nav.contact": "Contatti",
+
+  "concept.meta.title": "Concept | Andrea Bencini",
+  "concept.meta.description": "Concept e poetica di Andrea Bencini: arte generativa, relazioni, incertezza, sistemi complessi e geometrie emergenti ispirate alla Loop Quantum Gravity.",
+
+  "concept.title": "Concept",
+  "concept.subtitle": "Relazioni, incertezza e geometrie emergenti: un linguaggio visivo tra arte e scienza.",
+
+  "concept.p1": "Il mio lavoro nasce dallo studio delle relazioni.",
+  "concept.p2": "La mia formazione come data scientist mi ha portato ad analizzare sistemi complessi attraverso grafi, reti e modelli probabilistici. Questo modo di pensare, più che una tecnica, è diventato la struttura del mio linguaggio artistico.",
+
+  "concept.p3": "L’opera prende forma attraverso configurazioni relazionali: non come rappresentazione di oggetti isolati, ma come costruzione di strutture in cui gli elementi esistono in funzione delle loro interazioni. Il lavoro non procede per immagini predefinite, ma per processi.",
+  "concept.p4": "Concetti come incertezza, emergenza e probabilità non vengono illustrati, ma agiti. Ogni opera è il risultato di un equilibrio temporaneo, una possibile configurazione all’interno di un sistema più ampio.",
+
+  "concept.section1.title": "Loop Quantum Gravity",
+  "concept.section1.p1": "La serie Loop Quantum Gravity nasce da un dialogo con la fisica teorica e con l’idea che lo spazio-tempo non sia una struttura continua, ma emerga da relazioni discrete. Attraverso grafi generativi, le opere costruiscono mappe in cui i nodi rappresentano interazioni fondamentali, non entità autonome.",
+
+  "concept.section2.title": "Relazioni",
+  "concept.section2.p1": "Utilizzo strutture concettuali contemporanee per interrogare come i sistemi prendono forma, si organizzano e si trasformano.",
+
+  "concept.closing": "Ogni opera è una configurazione in cui le entità assumono valore attraverso le relazioni all’interno di un sistema più ampio.",
+
+  "footer.rights": "Andrea Bencini. Tutti i diritti riservati.",
+  "footer.instagram": "Instagram",
+  "footer.behance": "Behance",
+  "footer.email": "Email"
+}

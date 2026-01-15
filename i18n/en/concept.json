@@ -1,0 +1,32 @@
+{
+  "nav.home": "Home",
+  "nav.gallery": "Gallery",
+  "nav.concept": "Concept",
+  "nav.biography": "Biography",
+  "nav.contact": "Contact",
+
+  "concept.meta.title": "Concept | Andrea Bencini",
+  "concept.meta.description": "Concept and poetics by Andrea Bencini: generative art, relationships, uncertainty, complex systems, and emergent geometries inspired by Loop Quantum Gravity.",
+
+  "concept.title": "Concept",
+  "concept.subtitle": "Relationships, uncertainty, and emergent geometries: a visual language between art and science.",
+
+  "concept.p1": "My work begins with the study of relationships.",
+  "concept.p2": "My background as a data scientist led me to analyse complex systems through graphs, networks, and probabilistic models. This way of thinking, more than a technique, has become the structure of my artistic language.",
+
+  "concept.p3": "The work takes shape through relational configurations: not as a representation of isolated objects, but as the construction of structures in which elements exist through their interactions. The work does not proceed through predefined images, but through processes.",
+  "concept.p4": "Concepts such as uncertainty, emergence, and probability are not illustrated, but enacted. Each work is the result of a temporary balance, one possible configuration within a broader system.",
+
+  "concept.section1.title": "Loop Quantum Gravity",
+  "concept.section1.p1": "The Loop Quantum Gravity series emerges from a dialogue with theoretical physics and the idea that spacetime is not a continuous structure, but arises from discrete relations. Through generative graphs, the works construct maps in which nodes represent fundamental interactions rather than autonomous entities.",
+
+  "concept.section2.title": "Relationships",
+  "concept.section2.p1": "I use contemporary conceptual structures to question how systems take shape, organise themselves, and transform.",
+
+  "concept.closing": "Each work is a configuration in which entities gain value through their relationships within a broader system.",
+
+  "footer.rights": "Andrea Bencini. All rights reserved.",
+  "footer.instagram": "Instagram",
+  "footer.behance": "Behance",
+  "footer.email": "Email"
+}
