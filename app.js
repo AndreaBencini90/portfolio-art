@@ -1,81 +1,131 @@
+// ==========================================================
 // app.js
+// ==========================================================
+// Questo file gestisce:
+// - i18n (bilingue)
+// - gallery orizzontale
+// - lightbox
+// - dropdown "About" tap-to-open
+//
+// Architettura:
+// - IIFE per non sporcare lo scope globale
+// - UN SOLO DOMContentLoaded
+// - Tutte le init passano da init()
+// ==========================================================
 
-// Usiamo un IIFE per evitare di sporcare lo scope globale
 (() => {
-  // =========================
-  //        I18N (BILINGUE)
-  // =========================
+
+  /* ========================================================
+     COSTANTI & SELETTORI CENTRALIZZATI
+     ======================================================== */
+
   const I18N_CACHE = new Map();
   const LANG_KEY = 'site_lang';
 
-  // Selettori centralizzati: se cambi il markup, tocchi solo qui
+  // Se cambi il markup, tocchi SOLO qui
   const SELECTORS = {
     // i18n
     langButtons: '.lang-btn',
 
-    // gallery/lightbox
+    // dropdown
+    navDropdown: '.nav-dropdown',
+    navDropdownTrigger: '.nav-dropdown-trigger',
+    navDropdownMenu: '.nav-dropdown-menu',
+
+    // gallery
     galleryScroller: '#galleryScroller',
     scrollLeftBtn: '#scrollLeftBtn',
     scrollRightBtn: '#scrollRightBtn',
     artworkButtons: '.artwork-button',
+
+    // lightbox
     lightbox: '#lightbox',
     lightboxImg: '#lightboxImg',
     closeLightboxBtn: '#closeLightbox',
     lightboxPrevBtn: '#lbPrev',
     lightboxNextBtn: '#lbNext',
+
+    // footer
     yearSpan: '#yearSpan'
   };
 
-async function loadTranslations(lang) {
-  if (I18N_CACHE.has(lang)) return I18N_CACHE.get(lang);
-  
-  const BASE = document.documentElement.dataset.base || "./";
-  const basePath = `${BASE}/i18n/${lang}`;
+  /* ========================================================
+     STATO INTERNO (non globale)
+     ======================================================== */
 
-  const files = [
-    
-    'bio.json',
-    'common.json',
-    "contact.json",
-    "concept.json",
-    'loop-space-time.json',
-    
-    'works.json',
-    
-  ];
+  const state = {
+    currentIndex: -1,
+    items: []
+  };
 
-  const responses = await Promise.all(
-    files.map(file =>
-      fetch(`${basePath}/${file}`, { cache: 'no-store' })
-        .then(r => (r.ok ? r.json() : {}))
-    )
-  );
+  /* ========================================================
+     INIT PRINCIPALE
+     ========================================================
+     Qui passa TUTTO.
+     Se qualcosa non va, lo vedi subito.
+  ======================================================== */
 
-  const dict = Object.assign({}, ...responses);
-  I18N_CACHE.set(lang, dict);
-  return dict;
-}
+  function init() {
+    initI18n();
+    initDropdownTapToOpen();
+    initGallery();
+    initLightbox();
+    updateCurrentYear();
+  }
+
+  /* ========================================================
+     HELPER
+     ======================================================== */
+
+  function getElement(selector) {
+    const el = document.querySelector(selector);
+    if (!el) console.warn(`Elemento non trovato: ${selector}`);
+    return el;
+  }
+
+  /* ========================================================
+     I18N (BILINGUE)
+     ======================================================== */
+
+  async function loadTranslations(lang) {
+    if (I18N_CACHE.has(lang)) return I18N_CACHE.get(lang);
+
+    const BASE = document.documentElement.dataset.base || './';
+    const basePath = `${BASE}/i18n/${lang}`;
+
+    const files = [
+      'common.json',
+      'bio.json',
+      'concept.json',
+      'contact.json',
+      'works.json',
+      'loop-space-time.json'
+    ];
+
+    const responses = await Promise.all(
+      files.map(f =>
+        fetch(`${basePath}/${f}`, { cache: 'no-store' })
+          .then(r => r.ok ? r.json() : {})
+      )
+    );
+
+    const dict = Object.assign({}, ...responses);
+    I18N_CACHE.set(lang, dict);
+    return dict;
+  }
 
   function applyTranslations(dict) {
     if (!dict) return;
 
     // Testi
     document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
+      const key = el.dataset.i18n;
       if (dict[key] != null) el.textContent = dict[key];
     });
 
-    // Attributi (es: aria-label:gallery.scrollLeft)
+    // Attributi (aria-label, alt, ecc.)
     document.querySelectorAll('[data-i18n-attr]').forEach(el => {
-      const raw = el.getAttribute('data-i18n-attr');
-      if (!raw) return;
-
-      const parts = raw.split(':');
-      if (parts.length !== 2) return;
-
-      const attr = parts[0].trim();
-      const key = parts[1].trim();
-
+      const [attr, key] = el.dataset.i18nAttr.split(':');
       if (dict[key] != null) el.setAttribute(attr, dict[key]);
     });
   }
@@ -89,15 +139,11 @@ async function loadTranslations(lang) {
   function guessDefaultLang() {
     const saved = localStorage.getItem(LANG_KEY);
     if (saved) return saved;
-
-    const browser = (navigator.language || 'en').toLowerCase();
-    return browser.startsWith('it') ? 'it' : 'en';
+    return navigator.language?.startsWith('it') ? 'it' : 'en';
   }
 
   async function setLanguage(lang) {
     const dict = await loadTranslations(lang);
-    if (!dict) return;
-
     applyTranslations(dict);
     document.documentElement.lang = lang;
     localStorage.setItem(LANG_KEY, lang);
@@ -105,126 +151,150 @@ async function loadTranslations(lang) {
   }
 
   function initI18n() {
-    const buttons = document.querySelectorAll(SELECTORS.langButtons);
-
-    buttons.forEach(btn => {
+    document.querySelectorAll(SELECTORS.langButtons).forEach(btn => {
       btn.addEventListener('click', () => {
-        const lang = btn.dataset.lang;
-        if (lang) setLanguage(lang);
+        setLanguage(btn.dataset.lang);
       });
     });
 
     setLanguage(guessDefaultLang());
   }
 
-  // =========================
-  //      GALLERIA/LIGHTBOX
-  // =========================
+  /* ========================================================
+     DROPDOWN "ABOUT" – TAP TO OPEN
+     ========================================================
+     PROBLEMA DI PRIMA:
+     - CSS reagiva solo a :hover / :focus-within
+     - JS aggiungeva .is-open ma CSS non lo usava
 
-  // Costanti di configurazione: niente numeri magici in giro
-  const SCROLL_MIN_AMOUNT = 280;
-  const SCROLL_FACTOR = 0.8;
+     SOLUZIONE:
+     - JS aggiunge/toglie .is-open
+     - CSS contiene:
+       .nav-dropdown.is-open .nav-dropdown-menu { visibile }
+  ======================================================== */
 
-  // Stato interno (non globale)
-  const state = {
-    currentIndex: -1,
-    items: []
-  };
+  function initDropdownTapToOpen() {
+    const dropdown = document.querySelector(SELECTORS.navDropdown);
+    const trigger = document.querySelector(SELECTORS.navDropdownTrigger);
+    const menu = document.querySelector(SELECTORS.navDropdownMenu);
 
-  // Funzione di inizializzazione principale
-  function init() {
-    // i18n prima, così anche aria-label e testi sono coerenti subito
-    initI18n();
+    // Se la pagina non ha il dropdown, esco
+    if (!dropdown || !trigger || !menu) return;
 
-    const scroller = getElement(SELECTORS.galleryScroller);
-    const leftBtn = getElement(SELECTORS.scrollLeftBtn);
-    const rightBtn = getElement(SELECTORS.scrollRightBtn);
+    trigger.setAttribute('aria-haspopup', 'menu');
+    trigger.setAttribute('aria-expanded', 'false');
 
-    state.items = Array.from(document.querySelectorAll(SELECTORS.artworkButtons));
+    const open = () => {
+      dropdown.classList.add('is-open');
+      trigger.setAttribute('aria-expanded', 'true');
+    };
 
-    initGalleryScroll(scroller, leftBtn, rightBtn);
-    initLightbox();
-    updateCurrentYear();
-  }
+    const close = () => {
+      dropdown.classList.remove('is-open');
+      trigger.setAttribute('aria-expanded', 'false');
+    };
 
-  // Helper: recupera un elemento e se non esiste lancia warning chiaro
-  function getElement(selector) {
-    const el = document.querySelector(selector);
-    if (!el) {
-      console.warn(`Elemento non trovato per il selettore: ${selector}`);
-    }
-    return el;
-  }
+    const toggle = () => {
+      dropdown.classList.contains('is-open') ? close() : open();
+    };
 
-  /* =========================
-   *  GALLERIA ORIZZONTALE
-   * ========================= */
-
-  function initGalleryScroll(scroller, leftBtn, rightBtn) {
-    if (!scroller || !leftBtn || !rightBtn) return;
-
-    leftBtn.addEventListener('click', () => scrollGallery(scroller, -1));
-    rightBtn.addEventListener('click', () => scrollGallery(scroller, 1));
-  }
-
-  function scrollGallery(scroller, direction = 1) {
-    const baseAmount = Math.floor(scroller.clientWidth * SCROLL_FACTOR);
-    const scrollAmount = Math.max(SCROLL_MIN_AMOUNT, baseAmount);
-
-    scroller.scrollBy({
-      left: direction * scrollAmount,
-      behavior: 'smooth'
+    // TAP sul bottone
+    trigger.addEventListener('click', e => {
+      e.preventDefault();
+      e.stopPropagation(); // ← QUESTO ERA FONDAMENTALE
+      toggle();
     });
+
+    // Click su link interni → chiudi
+    menu.addEventListener('click', e => {
+      if (e.target.closest('a')) close();
+    });
+
+    // Click fuori → chiudi
+    document.addEventListener('click', e => {
+      if (!dropdown.contains(e.target)) close();
+    });
+
+    // ESC → chiudi
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') close();
+    });
+
+    // Resize → reset stato
+    window.addEventListener('resize', close);
   }
 
-  /* =========================
-   *        LIGHTBOX
-   * ========================= */
+  /* ========================================================
+     GALLERIA ORIZZONTALE
+     ======================================================== */
+
+  function initGallery() {
+    const scroller = getElement(SELECTORS.galleryScroller);
+    const left = getElement(SELECTORS.scrollLeftBtn);
+    const right = getElement(SELECTORS.scrollRightBtn);
+
+    if (!scroller || !left || !right) return;
+
+    const SCROLL_FACTOR = 0.8;
+    const MIN_SCROLL = 280;
+
+    const scroll = dir => {
+      const amount = Math.max(
+        MIN_SCROLL,
+        Math.floor(scroller.clientWidth * SCROLL_FACTOR)
+      );
+      scroller.scrollBy({ left: dir * amount, behavior: 'smooth' });
+    };
+
+    left.addEventListener('click', () => scroll(-1));
+    right.addEventListener('click', () => scroll(1));
+  }
+
+  /* ========================================================
+     LIGHTBOX
+     ======================================================== */
 
   function initLightbox() {
     const lightbox = getElement(SELECTORS.lightbox);
-    const closeBtn = getElement(SELECTORS.closeLightboxBtn);
-    const prevBtn = getElement(SELECTORS.lightboxPrevBtn);
-    const nextBtn = getElement(SELECTORS.lightboxNextBtn);
+    const img = getElement(SELECTORS.lightboxImg);
 
-    if (!lightbox) return;
+    if (!lightbox || !img) return;
 
-    // Colleghiamo gli eventi ai pulsanti opera
-    state.items.forEach((button, index) => {
-      button.addEventListener('click', () => openLightbox(index));
+    state.items = Array.from(document.querySelectorAll(SELECTORS.artworkButtons));
 
-      button.addEventListener('keydown', event => {
-        if (event.key === 'Enter' || event.key === ' ') {
-          event.preventDefault();
-          openLightbox(index);
+    state.items.forEach((btn, i) => {
+      btn.addEventListener('click', () => openLightbox(i));
+      btn.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openLightbox(i);
         }
       });
     });
 
-    // Pulsanti del lightbox
-    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
-    if (prevBtn) prevBtn.addEventListener('click', () => showNextItem(-1));
-    if (nextBtn) nextBtn.addEventListener('click', () => showNextItem(1));
+    getElement(SELECTORS.closeLightboxBtn)?.addEventListener('click', closeLightbox);
+    getElement(SELECTORS.lightboxPrevBtn)?.addEventListener('click', () => navigate(-1));
+    getElement(SELECTORS.lightboxNextBtn)?.addEventListener('click', () => navigate(1));
 
-    // Chiudi cliccando fuori dal contenitore
-    lightbox.addEventListener('click', event => {
-      if (event.target === lightbox) closeLightbox();
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) closeLightbox();
     });
 
-    // Gestione tastiera
-    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('keydown', e => {
+      if (state.currentIndex < 0) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') navigate(1);
+      if (e.key === 'ArrowLeft') navigate(-1);
+    });
   }
 
   function openLightbox(index) {
     const lightbox = getElement(SELECTORS.lightbox);
-    const lightboxImg = getElement(SELECTORS.lightboxImg);
-
-    if (!lightbox || !lightboxImg || !state.items.length) return;
+    const img = getElement(SELECTORS.lightboxImg);
 
     state.currentIndex = index;
-    const fullSrc = state.items[index].getAttribute('data-full');
+    img.src = state.items[index].dataset.full;
 
-    lightboxImg.src = fullSrc;
     lightbox.classList.remove('hidden');
     lightbox.classList.add('flex');
     document.body.style.overflow = 'hidden';
@@ -232,59 +302,35 @@ async function loadTranslations(lang) {
 
   function closeLightbox() {
     const lightbox = getElement(SELECTORS.lightbox);
-    const lightboxImg = getElement(SELECTORS.lightboxImg);
-
-    if (!lightbox || !lightboxImg) return;
+    const img = getElement(SELECTORS.lightboxImg);
 
     lightbox.classList.add('hidden');
     lightbox.classList.remove('flex');
-    lightboxImg.src = '';
+    img.src = '';
     document.body.style.overflow = '';
     state.currentIndex = -1;
   }
 
-  function showNextItem(step) {
-    const lightboxImg = getElement(SELECTORS.lightboxImg);
-
-    if (!lightboxImg || state.currentIndex < 0 || !state.items.length) return;
-
-    const totalItems = state.items.length;
-    const nextIndex = (state.currentIndex + step + totalItems) % totalItems;
-
-    state.currentIndex = nextIndex;
-    const nextSrc = state.items[nextIndex].getAttribute('data-full');
-    lightboxImg.src = nextSrc;
+  function navigate(step) {
+    const total = state.items.length;
+    state.currentIndex = (state.currentIndex + step + total) % total;
+    getElement(SELECTORS.lightboxImg).src =
+      state.items[state.currentIndex].dataset.full;
   }
 
-  function handleKeyDown(event) {
-    const lightbox = getElement(SELECTORS.lightbox);
-    if (!lightbox || lightbox.classList.contains('hidden')) return;
-
-    switch (event.key) {
-      case 'Escape':
-        closeLightbox();
-        break;
-      case 'ArrowRight':
-        showNextItem(1);
-        break;
-      case 'ArrowLeft':
-        showNextItem(-1);
-        break;
-      default:
-        break;
-    }
-  }
-
-  /* =========================
-   *       UTILITÀ VARIE
-   * ========================= */
+  /* ========================================================
+     FOOTER
+     ======================================================== */
 
   function updateCurrentYear() {
-    const yearSpan = getElement(SELECTORS.yearSpan);
-    if (!yearSpan) return;
-    yearSpan.textContent = new Date().getFullYear();
+    const el = getElement(SELECTORS.yearSpan);
+    if (el) el.textContent = new Date().getFullYear();
   }
 
-  // Facciamo partire tutto quando il DOM è pronto
+  /* ========================================================
+     BOOT
+     ======================================================== */
+
   document.addEventListener('DOMContentLoaded', init);
+
 })();
