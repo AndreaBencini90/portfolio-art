@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="it" data-base=".">
+  <head>
+    <title>Privacy & Cookie Policy | Andrea Bencini</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body class="gjs-t-body body">
+    <header class="header">
+      <div class="header-container">
+        <a href="index.html" class="gjs-t-link group brand-link">
+          <div class="group-hover:ring-slate-900/20 brand-mark">AB</div>
+          <span class="brand-name">Andrea Bencini</span>
+        </a>
+        <nav class="primary-nav">
+          <a href="index.html" class="gjs-t-link nav-link">Home</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main-content" style="padding-top: 4rem; padding-bottom: 4rem; max-width: 800px;">
+      <h1 class="gjs-t-h1" style="margin-bottom: 2rem;">Privacy & Cookie Policy</h1>
+      
+      <div class="bio-text">
+        <h2 class="gjs-t-h2" style="margin-top: 2rem; margin-bottom: 1rem;">1. Titolare del Trattamento</h2>
+        <p>Andrea Bencini - bencini.art@gmail.com</p>
+
+        <h2 class="gjs-t-h2" style="margin-top: 2rem; margin-bottom: 1rem;">2. Tipologie di Dati raccolti</h2>
+        <p>
+          Questo sito utilizza cookie tecnici (necessari per il funzionamento, come la preferenza della lingua) 
+          e, previo tuo consenso, cookie statistici di terze parti (Google Analytics 4).
+        </p>
+
+        <h2 class="gjs-t-h2" style="margin-top: 2rem; margin-bottom: 1rem;">3. Google Analytics 4</h2>
+        <p>
+          Utilizziamo Google Analytics per analizzare il traffico del sito in forma anonima. 
+          Abbiamo attivato l'anonimizzazione dell'IP, che impedisce a Google di registrare il tuo indirizzo IP completo.
+          I dati vengono conservati per un periodo limitato e utilizzati solo a fini statistici aggregati.
+        </p>
+        <p style="margin-top: 1rem;">
+          Il tracciamento avviene <strong>solo se clicchi su "Accetta"</strong> nel banner. 
+          Se chiudi il banner o rifiuti, nessun cookie di tracciamento verrà installato.
+        </p>
+
+        <h2 class="gjs-t-h2" style="margin-top: 2rem; margin-bottom: 1rem;">4. Diritti dell'utente</h2>
+        <p>
+          Puoi revocare il tuo consenso in qualsiasi momento cliccando sul link "Cookie" presente nel footer di ogni pagina.
+          Inoltre, puoi disabilitare i cookie direttamente dalle impostazioni del tuo browser.
+        </p>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <p class="footer-text">
+          © <span id="yearSpan">2025</span> Andrea Bencini. All rights reserved.
+        </p>
+        <div class="footer-links">
+          <a href="mailto:bencini.art@gmail.com" class="gjs-t-link footer-link">Email</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Script minimi necessari -->
+    <script>
+      // Script minimo per l'anno nel footer
+      document.getElementById('yearSpan').textContent = new Date().getFullYear();
+      
+      // Gestione revoca cookie (copia semplificata della logica app.js)
+      const btn = document.createElement('button');
+      btn.className = 'gjs-t-link footer-link';
+      btn.textContent = 'Reset Cookie';
+      btn.style.cssText = 'background:none; border:none; cursor:pointer; font:inherit; padding:0;';
+      btn.onclick = () => { localStorage.removeItem('cookie_consent'); location.reload(); };
+      document.querySelector('.footer-links').appendChild(btn);
+    </script>
+  </body>
+</html>

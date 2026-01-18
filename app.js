@@ -71,6 +71,7 @@
     initGallery();
     initLightbox();
     updateCurrentYear();
+    // initCookieBanner(); // <--- DISABILITATO TEMPORANEAMENTE
   }
 
   /* ========================================================
@@ -325,6 +326,86 @@
   function updateCurrentYear() {
     const el = getElement(SELECTORS.yearSpan);
     if (el) el.textContent = new Date().getFullYear();
+  }
+
+  /* ========================================================
+     COOKIE BANNER
+     ======================================================== */
+
+  function initCookieBanner() {
+    const consent = localStorage.getItem('cookie_consent');
+    // Calcola il percorso base per il link privacy (gestisce le sottocartelle)
+    const BASE = document.documentElement.dataset.base || '.';
+
+    // Funzione per aggiungere il link di revoca nel footer
+    const addRevokeLink = () => {
+      const footerLinks = document.querySelector('.footer-links');
+      if (!footerLinks) return;
+      
+      // Evita duplicati
+      if (footerLinks.querySelector('.cookie-revoke-btn')) return;
+
+      const btn = document.createElement('button');
+      btn.className = 'gjs-t-link footer-link cookie-revoke-btn';
+      btn.textContent = 'Cookie';
+      btn.style.background = 'none';
+      btn.style.border = 'none';
+      btn.style.cursor = 'pointer';
+      btn.style.padding = '0';
+      btn.style.font = 'inherit';
+      
+      btn.addEventListener('click', () => {
+        localStorage.removeItem('cookie_consent');
+        location.reload(); // Ricarica per mostrare di nuovo il banner
+      });
+      
+      footerLinks.appendChild(btn);
+    };
+
+    // Se l'utente ha già scelto (accettato O rifiutato), mostra solo il link nel footer
+    if (consent) {
+      addRevokeLink();
+      return;
+    }
+
+    // Crea il banner via JS
+    const banner = document.createElement('div');
+    banner.className = 'cookie-banner';
+    banner.innerHTML = `
+      <div class="cookie-text">
+        Questo sito utilizza cookie per analizzare il traffico.
+        <a href="${BASE}/privacy.html" class="cookie-link">Privacy Policy</a>.
+      </div>
+      <button class="cookie-btn accept">Accetta</button>
+      <button class="cookie-close" aria-label="Chiudi e rifiuta">✕</button>
+    `;
+
+    document.body.appendChild(banner);
+
+    // Anima l'entrata
+    requestAnimationFrame(() => banner.classList.add('is-visible'));
+
+    // Gestisci il click
+    banner.querySelector('.cookie-btn.accept').addEventListener('click', () => {
+      if (typeof window.startAnalytics === 'function') window.startAnalytics();
+      
+      // Nascondi e rimuovi banner
+      banner.classList.remove('is-visible');
+      setTimeout(() => {
+        banner.remove();
+        addRevokeLink(); // Aggiungi subito il link nel footer
+      }, 300);
+    });
+
+    // Gestisci la chiusura (Rifiuta)
+    banner.querySelector('.cookie-close').addEventListener('click', () => {
+      localStorage.setItem('cookie_consent', 'rejected'); // Ricorda il rifiuto
+      banner.classList.remove('is-visible');
+      setTimeout(() => {
+        banner.remove();
+        addRevokeLink(); // Aggiungi subito il link nel footer
+      }, 300);
+    });
   }
 
   /* ========================================================
