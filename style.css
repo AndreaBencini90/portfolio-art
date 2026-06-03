@@ -318,23 +318,9 @@ video {
 }
 
 /* colore selezione testo */
-.body *::selection {
-  background-color: rgb(186 230 253 / 0.5);
-  color: rgb(15 23 42 / 1);
-}
-
-/* queste righe sono ridondanti ma le lascio per non cambiare il comportamento */
-.body *::selection:hover {
-  color: rgb(15 23 42 / 1);
-}
-.body *::selection::selection {
-  color: rgb(15 23 42 / 1);
-}
-
+.body *::selection,
 .body::selection {
   background-color: rgb(186 230 253 / 0.5);
-}
-.body::selection::selection {
   color: rgb(15 23 42 / 1);
 }
 
@@ -1319,4 +1305,96 @@ video {
 
 .nav-dropdown-menu .nav-link:hover {
   background-color: #f8fafc;
+}
+
+/* =========================================================
+   CONCEPT PAGE SPECIFIC
+   ========================================================= */
+.concept-hero {
+  padding-top: 8px;
+}
+.concept-hero .bio-intro {
+  max-width: 42rem;
+}
+.concept-divider {
+  margin: 26px 0;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+.concept-outline {
+  margin: 18px 0 26px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.concept-outline a {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  padding-bottom: 2px;
+}
+.concept-outline a:hover {
+  border-bottom-color: rgba(0, 0, 0, 0.6);
+}
+.concept-block {
+  margin-top: 26px;
+}
+.concept-block:first-of-type {
+  margin-top: 0;
+}
+
+/* =========================================================
+   WORKS PAGE SPECIFIC
+   ========================================================= */
+.collections-section {
+  padding-bottom: 40px;
+}
+.collections-grid {
+  width: min(1100px, calc(100% - 40px));
+  margin: 0 auto;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+@media (max-width: 900px) {
+  .collections-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .collections-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.collection-card {
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+  display: block;
+}
+.collection-media img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transform: scale(1);
+  transition: transform 220ms ease;
+}
+.collection-body {
+  padding: 14px 14px 16px;
+}
+.collection-title {
+  margin: 0 0 6px;
+  font-size: 18px;
+  line-height: 1.2;
+}
+.collection-subtitle {
+  margin: 0 0 10px;
+  opacity: 0.75;
+  font-size: 14px;
+  line-height: 1.4;
 }
