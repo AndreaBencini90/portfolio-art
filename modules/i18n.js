@@ -17,7 +17,8 @@ const cache = new Map();
 
 // Carica e unisce i JSON di una lingua; usa cache in memoria.
 async function loadTranslations(lang, files, basePath) {
-  if (cache.has(lang)) return cache.get(lang);
+  const cacheKey = `${lang}:${basePath}`;
+  if (cache.has(cacheKey)) return cache.get(cacheKey);
 
   const responses = await Promise.all(
     files.map(file =>
@@ -27,7 +28,7 @@ async function loadTranslations(lang, files, basePath) {
   );
 
   const dict = Object.assign({}, ...responses);
-  cache.set(lang, dict);
+  cache.set(cacheKey, dict);
   return dict;
 }
 

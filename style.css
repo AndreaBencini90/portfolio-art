@@ -1061,6 +1061,86 @@ video {
 }
 
 /* =========================================================
+   BIO — EXHIBITION CARD
+   ========================================================= */
+.bio-exhibition-card {
+  border-left: 3px solid var(--gjs-t-color-accent);
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.5rem;
+  background: #f1f5f9;
+  border-radius: 0 4px 4px 0;
+}
+
+.bio-exhibition-meta {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.bio-exhibition-type {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gjs-t-color-accent);
+  background: #e0f2fe;
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
+
+.bio-exhibition-dates {
+  font-size: 0.85rem;
+  color: var(--gjs-t-color-secondary);
+}
+
+.bio-exhibition-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--gjs-t-color-primary);
+  margin: 0 0 0.25rem;
+}
+
+.bio-exhibition-subtitle {
+  font-size: 0.9rem;
+  color: var(--gjs-t-color-secondary);
+  font-style: italic;
+  margin: 0 0 1rem;
+}
+
+.bio-exhibition-gallery-link {
+  display: inline-block;
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--gjs-t-color-accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.bio-exhibition-gallery-link:hover {
+  border-bottom-color: var(--gjs-t-color-accent);
+}
+
+.bio-exhibition-artists-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gjs-t-color-secondary);
+  margin: 1rem 0 0.25rem;
+}
+
+.bio-exhibition-artists {
+  font-size: 0.95rem;
+  color: var(--gjs-t-color-primary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* =========================================================
    PRESS PAGE
    ========================================================= */
 .press-section-title {

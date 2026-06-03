@@ -16,5 +16,16 @@
   "bio.poetics.title": "Poetics",
   "bio.poetics.text1": "His poetics arise from a suspended space, where forms exist only as vibrations of possibility.",
   "bio.poetics.text2": "From this uncertain territory, artworks surface, allowing code to reveal a single form among many. It is the movement of creation itself, where each idea exists as potential until something calls it into presence.",
-  "bio.poetics.text3": "Thus, the image becomes the place where the possible concentrates, gathers courage, and finally appears."
+  "bio.poetics.text3": "Thus, the image becomes the place where the possible concentrates, gathers courage, and finally appears.",
+
+  "bio.exhibitions.title": "Exhibitions",
+  "bio.exhibitions.collective": "Group show",
+  "bio.exhibitions.ex1.title": "Costellazioni Interiori",
+  "bio.exhibitions.ex1.subtitle": "Contemporary art exhibition",
+  "bio.exhibitions.ex1.dates": "May 16 – June 10, 2026",
+  "bio.exhibitions.ex1.description": "A group exhibition bringing together artists of different languages and research practices, united by an interest in interior, emotional and perceptual dimensions. Between abstraction, figuration and experimentation, the works build a dialogue of memory, symbols and personal visions, inviting the visitor to traverse intimate and sensitive landscapes.",
+  "bio.exhibitions.ex1.gallery.label": "Roccart Gallery",
+  "bio.exhibitions.ex1.gallery.aria": "Visit the exhibition page on Roccart Gallery",
+  "bio.exhibitions.ex1.artists.label": "Artists",
+  "bio.exhibitions.ex1.artists.list": "Andrea Bencini, Carla Ballini, Melania Di Luigi, Sergio Falco, Alessandro Giordani, Enrico Mantovani, Eve Art Project"
 }
