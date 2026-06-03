@@ -1,6 +1,7 @@
 {
   "nav.home": "Home",
   "nav.about": "About ▾",
+  "nav.press": "Press",
   "nav.biography": "Biografia",
   "nav.work": "Collezioni",
   "nav.gallery": "Collezioni",
@@ -26,7 +27,7 @@
   "lightbox.preview": "Anteprima opera",
   "lightbox.close": "Chiudi",
   "lightbox.imageAlt": "Opera a schermo intero",
-  "lightbox.hint": "Clicca all’esterno o premi ESC per chiudere.",
+  "lightbox.hint": "Clicca all'esterno o premi ESC per chiudere.",
   "lightbox.prev": "Precedente",
   "lightbox.next": "Successivo",
 

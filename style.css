@@ -19,6 +19,11 @@ body {
   --gjs-t-color-success: #10b981;
   --gjs-t-color-warning: #f59e0b;
   --gjs-t-color-error: #ef4444;
+  --shadow-outline-blue: 0 0 0 0px #fff, 0 0 0 1px rgb(59 130 246 / 0.5), 0 0 #0000;
+  --shadow-outline-dark: 0 0 0 0px #fff, 0 0 0 1px rgba(0, 0, 0, 0.5), 0 0 #0000;
+  --shadow-outline-dark-strong: 0 0 0 0px #fff, 0 0 0 1px rgba(3, 5, 8, 0.5), 0 0 #0000;
+  --focus-ring-blue: 0 0 0 0px #fff, 0 0 0 2px rgb(59 130 246 / 0.5), 0 0 #0000;
+  --focus-ring-slate: 0 0 0 0px #fff, 0 0 0 2px rgb(226 232 240 / 1), 0 0 #0000;
 }
 
 html {
@@ -313,23 +318,9 @@ video {
 }
 
 /* colore selezione testo */
-.body *::selection {
-  background-color: rgb(186 230 253 / 0.5);
-  color: rgb(15 23 42 / 1);
-}
-
-/* queste righe sono ridondanti ma le lascio per non cambiare il comportamento */
-.body *::selection:hover {
-  color: rgb(15 23 42 / 1);
-}
-.body *::selection::selection {
-  color: rgb(15 23 42 / 1);
-}
-
+.body *::selection,
 .body::selection {
   background-color: rgb(186 230 253 / 0.5);
-}
-.body::selection::selection {
   color: rgb(15 23 42 / 1);
 }
 
@@ -375,7 +366,7 @@ video {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 0 0px #fff, 0 0 0 calc(1px + 0px) rgb(59 130 246 / 0.5), 0 0 #0000;
+  box-shadow: var(--shadow-outline-blue);
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
@@ -569,7 +560,7 @@ video {
   height: 2.5rem;
   width: 2.5rem;
   border-radius: 9999px;
-  box-shadow: 0 0 0 0px #fff, 0 0 0 calc(1px + 0px) rgba(0, 0, 0, 0.5), 0 0 #0000;
+  box-shadow: var(--shadow-outline-dark);
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
@@ -577,7 +568,7 @@ video {
 
 .gallery-arrow-left:focus-visible,
 .gallery-arrow-right:focus-visible {
-  box-shadow: 0 0 0 0px #fff, 0 0 0 calc(1px + 0px) rgba(3, 5, 8, 0.5), 0 0 #0000;
+  box-shadow: var(--shadow-outline-dark-strong);
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
@@ -589,7 +580,7 @@ video {
 
 .gallery-arrow-left:focus-visible:focus-visible,
 .gallery-arrow-right:focus-visible:focus-visible {
-  box-shadow: 0 0 0 0px #fff, 0 0 0 calc(2px + 0px) rgb(226 232 240 / 1), 0 0 #0000;
+  box-shadow: var(--focus-ring-slate);
 }
 
 .gallery-wrapper {
@@ -765,7 +756,7 @@ video {
   max-width: 64rem;
   width: 100%;
   background-color: rgb(255 255 255 / 1);
-  box-shadow: 0 0 0 0px #fff, 0 0 0 calc(1px + 0px) rgb(59 130 246 / 0.5), 0 0 #0000;
+  box-shadow: var(--shadow-outline-blue);
   overflow: hidden;
 }
 
@@ -778,7 +769,7 @@ video {
   border-radius: 9999px;
   background-color: rgb(255 255 255 / 0.8);
   backdrop-filter: blur(4px);
-  box-shadow: 0 0 0 0px #fff, 0 0 0 calc(1px + 0px) rgb(59 130 246 / 0.5), 0 0 #0000;
+  box-shadow: var(--shadow-outline-blue);
   z-index: 10;
   display: inline-flex;
   align-items: center;
@@ -786,7 +777,7 @@ video {
 }
 
 .lightbox-close:focus-visible {
-  box-shadow: 0 0 0 0px #fff, 0 0 0 calc(1px + 0px) rgb(59 130 246 / 0.5), 0 0 #0000;
+  box-shadow: var(--shadow-outline-blue);
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
@@ -796,7 +787,7 @@ video {
 }
 
 .lightbox-close:focus-visible:focus-visible {
-  box-shadow: 0 0 0 0px #fff, 0 0 0 calc(2px + 0px) rgb(226 232 240 / 1), 0 0 #0000;
+  box-shadow: var(--focus-ring-slate);
 }
 
 .lightbox-media {
@@ -843,7 +834,7 @@ video {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   border-radius: 9999px;
-  box-shadow: 0 0 0 0px #fff, 0 0 0 calc(1px + 0px) rgb(59 130 246 / 0.5), 0 0 #0000;
+  box-shadow: var(--shadow-outline-blue);
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
@@ -851,7 +842,7 @@ video {
 
 .lightbox-prev:focus-visible,
 .lightbox-next:focus-visible {
-  box-shadow: 0 0 0 0px #fff, 0 0 0 calc(1px + 0px) rgb(59 130 246 / 0.5), 0 0 #0000;
+  box-shadow: var(--shadow-outline-blue);
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
@@ -863,7 +854,7 @@ video {
 
 .lightbox-prev:focus-visible:focus-visible,
 .lightbox-next:focus-visible:focus-visible {
-  box-shadow: 0 0 0 0px #fff, 0 0 0 calc(2px + 0px) rgb(226 232 240 / 1), 0 0 #0000;
+  box-shadow: var(--focus-ring-slate);
 }
 
 /* =========================================================
@@ -1067,6 +1058,85 @@ video {
 
 .bio-text {
   margin-bottom: 1.25rem;
+}
+
+/* =========================================================
+   PRESS PAGE
+   ========================================================= */
+.press-section-title {
+  margin-top: 1rem;
+}
+
+.press-section-subtitle {
+  color: var(--gjs-t-color-secondary);
+  margin-bottom: 2.5rem;
+}
+
+.press-card {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 2.5rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.press-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--gjs-t-color-secondary);
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.press-card-source {
+  font-weight: 600;
+  color: var(--gjs-t-color-accent);
+}
+
+.press-card-sep {
+  opacity: 0.4;
+}
+
+.press-card-title {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+  line-height: 1.25;
+}
+
+.press-card-subtitle {
+  font-size: 1rem;
+  color: var(--gjs-t-color-secondary);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+}
+
+.press-quote {
+  border-left: 3px solid var(--gjs-t-color-accent);
+  margin: 2rem 0;
+  padding: 0.75rem 1.5rem;
+  font-style: italic;
+  color: var(--gjs-t-color-primary);
+  background: #f1f5f9;
+  border-radius: 0 4px 4px 0;
+  line-height: 1.7;
+}
+
+.press-card-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-weight: 600;
+  color: var(--gjs-t-color-accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.press-card-link:hover {
+  border-bottom-color: var(--gjs-t-color-accent);
 }
 
 /* =========================================================
@@ -1315,4 +1385,96 @@ video {
 
 .nav-dropdown-menu .nav-link:hover {
   background-color: #f8fafc;
+}
+
+/* =========================================================
+   CONCEPT PAGE SPECIFIC
+   ========================================================= */
+.concept-hero {
+  padding-top: 8px;
+}
+.concept-hero .bio-intro {
+  max-width: 42rem;
+}
+.concept-divider {
+  margin: 26px 0;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+.concept-outline {
+  margin: 18px 0 26px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.concept-outline a {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  padding-bottom: 2px;
+}
+.concept-outline a:hover {
+  border-bottom-color: rgba(0, 0, 0, 0.6);
+}
+.concept-block {
+  margin-top: 26px;
+}
+.concept-block:first-of-type {
+  margin-top: 0;
+}
+
+/* =========================================================
+   WORKS PAGE SPECIFIC
+   ========================================================= */
+.collections-section {
+  padding-bottom: 40px;
+}
+.collections-grid {
+  width: min(1100px, calc(100% - 40px));
+  margin: 0 auto;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+@media (max-width: 900px) {
+  .collections-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .collections-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.collection-card {
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+  display: block;
+}
+.collection-media img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transform: scale(1);
+  transition: transform 220ms ease;
+}
+.collection-body {
+  padding: 14px 14px 16px;
+}
+.collection-title {
+  margin: 0 0 6px;
+  font-size: 18px;
+  line-height: 1.2;
+}
+.collection-subtitle {
+  margin: 0 0 10px;
+  opacity: 0.75;
+  font-size: 14px;
+  line-height: 1.4;
 }
