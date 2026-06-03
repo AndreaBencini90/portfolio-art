@@ -14,7 +14,8 @@ export const I18N_FILES = [
   'concept.json',
   'contact.json',
   'works.json',
-  'loop-space-time.json'
+  'loop-space-time.json',
+  'press.json'
 ];
 
 // Se cambi il markup, tocchi SOLO qui

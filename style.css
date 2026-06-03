@@ -1075,6 +1075,85 @@ video {
 }
 
 /* =========================================================
+   PRESS PAGE
+   ========================================================= */
+.press-section-title {
+  margin-top: 1rem;
+}
+
+.press-section-subtitle {
+  color: var(--gjs-t-color-secondary);
+  margin-bottom: 2.5rem;
+}
+
+.press-card {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 2.5rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.press-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--gjs-t-color-secondary);
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.press-card-source {
+  font-weight: 600;
+  color: var(--gjs-t-color-accent);
+}
+
+.press-card-sep {
+  opacity: 0.4;
+}
+
+.press-card-title {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+  line-height: 1.25;
+}
+
+.press-card-subtitle {
+  font-size: 1rem;
+  color: var(--gjs-t-color-secondary);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+}
+
+.press-quote {
+  border-left: 3px solid var(--gjs-t-color-accent);
+  margin: 2rem 0;
+  padding: 0.75rem 1.5rem;
+  font-style: italic;
+  color: var(--gjs-t-color-primary);
+  background: #f1f5f9;
+  border-radius: 0 4px 4px 0;
+  line-height: 1.7;
+}
+
+.press-card-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-weight: 600;
+  color: var(--gjs-t-color-accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.press-card-link:hover {
+  border-bottom-color: var(--gjs-t-color-accent);
+}
+
+/* =========================================================
    MOBILE: language switch pill e nav scorrevole
    ========================================================= */
 @media (max-width: 480px) {
