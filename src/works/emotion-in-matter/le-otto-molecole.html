@@ -1,15 +1,22 @@
 ---
 layout: base.njk
 title: "Le Otto Molecole — Emotion in Matter | Andrea Bencini"
-description: "Le Otto Molecole: otto molecole neurochimiche dell'amore tradotte in grafi, lungo le tre fasi Desiderio, Attrazione e Legame. Serie del ciclo Emotion in Matter."
-ogDescription: "Otto molecole dell'amore tradotte in grafi, lungo le tre fasi: Desiderio, Attrazione, Legame."
+description: "Le Otto Molecole: opere generative basate sulle otto molecole neurochimiche dell'amore, tradotte in grafi. Serie del ciclo Emotion in Matter."
+ogDescription: "Opere generative basate sulle otto molecole dell'amore, tradotte in grafi."
 extraCss:
   - /collection/collectionStyle.css
 ---
 <style>
-  .phase-heading { width: min(1100px, calc(100% - 40px)); margin: 2.5rem auto 0.5rem; }
-  .phase-heading .phase-kicker { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(100 116 139); }
-  .phase-heading h2 { margin: 0.2rem 0 0; }
+  .collections-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; justify-items: center; }
+  .collection-card { width: 100%; max-width: 420px; }
+  .deep-link { width: min(1100px, calc(100% - 40px)); margin: 2.5rem auto 0; display: block;
+    text-decoration: none; color: inherit; border: 1px solid rgba(15,23,42,0.14); border-radius: 16px;
+    padding: 1.2rem 1.4rem; transition: border-color 160ms ease, transform 160ms ease; }
+  .deep-link:hover { border-color: rgba(15,23,42,0.30); transform: translateY(-2px); }
+  .deep-link .deep-kicker { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(100 116 139); }
+  .deep-link h2 { margin: 0.3rem 0 0.3rem; font-size: 1.15rem; }
+  .deep-link p { margin: 0; opacity: 0.8; font-size: 0.95rem; }
+  .deep-link .deep-cta { display: inline-block; margin-top: 0.6rem; font-weight: 600; }
 </style>
 
 <main class="main-content">
@@ -17,97 +24,48 @@ extraCss:
     <div class="hero-container">
       <h1 class="gjs-t-h1 hero-title">Le Otto Molecole</h1>
       <p class="hero-collection-subtitle">
-        Otto molecole neurochimiche dell'amore, una per opera. Seguono le tre fasi descritte da Helen Fisher — Desiderio, Attrazione, Legame — non come illustrazione, ma come struttura: la molecola reale diventa un grafo, e il sentimento una rete di relazioni.
+        Ogni opera nasce dalle stesse otto molecole neurochimiche dell'amore, tradotte in un unico grafo: desiderio, attrazione e legame che convivono in una sola rete di relazioni. Non una molecola per opera, ma tutte insieme — ogni lavoro una diversa configurazione dello stesso sistema.
       </p>
       <p class="hero-collection-subtitle" style="opacity:.7;">
-        Impalcatura: le anteprime qui sotto sono grafi segnaposto (immagini finali dei grafi in arrivo, export da Gephi). I colori sono la tavolozza reale di ogni molecola.
+        Impalcatura: le anteprime qui sotto sono grafi segnaposto (immagini finali in arrivo, export da Gephi).
       </p>
     </div>
   </section>
 
-  <!-- FASE 1 - DESIDERIO -->
-  <div class="phase-heading">
-    <span class="phase-kicker">Fase 1</span>
-    <h2 class="gjs-t-h2">Desiderio</h2>
-  </div>
+  <!-- LE OPERE (finora) -->
   <section class="collections-section">
     <div class="collections-grid">
       <div class="collection-card">
-        <div class="collection-media">{% graphPlaceholder "#E8350A", "In arrivo", "GnRH" %}</div>
+        <div class="collection-media">{% graphPlaceholder "linear-gradient(135deg, #E8350A, #FF6B47, #F5C518, #D4570A, #2B7BFF, #8B35D6, #00C9B1)", "In arrivo", "opera-01" %}</div>
         <div class="collection-body">
-          <h3 class="collection-title">GnRH</h3>
-          <p class="collection-subtitle">L'innesco: l'accendersi del desiderio.</p>
+          <h3 class="collection-title">Le Otto Molecole — I</h3>
+          <p class="collection-subtitle">2025 · Stampa su tela · 120×120 cm</p>
         </div>
       </div>
+
       <div class="collection-card">
-        <div class="collection-media">{% graphPlaceholder "#FF6B47", "In arrivo", "Sostanza P" %}</div>
+        <div class="collection-media">{% graphPlaceholder "linear-gradient(135deg, #2B7BFF, #00C9B1, #8B35D6, #E8350A, #F5C518)", "In arrivo", "opera-02" %}</div>
         <div class="collection-body">
-          <h3 class="collection-title">Sostanza P</h3>
-          <p class="collection-subtitle">La mancanza, il dolore del volere.</p>
+          <h3 class="collection-title">Le Otto Molecole — II</h3>
+          <p class="collection-subtitle">2025 · Stampa su tela · 120×120 cm</p>
+        </div>
+      </div>
+
+      <div class="collection-card">
+        <div class="collection-media">{% graphPlaceholder "linear-gradient(135deg, #8B35D6, #E89A1A, #00C9B1, #FF6B47, #2B7BFF)", "In arrivo", "opera-03" %}</div>
+        <div class="collection-body">
+          <h3 class="collection-title">Le Otto Molecole — III</h3>
+          <p class="collection-subtitle">2025 · Stampa su tela · 120×120 cm</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FASE 2 - ATTRAZIONE -->
-  <div class="phase-heading">
-    <span class="phase-kicker">Fase 2</span>
-    <h2 class="gjs-t-h2">Attrazione</h2>
-  </div>
-  <section class="collections-section">
-    <div class="collections-grid">
-      <div class="collection-card">
-        <div class="collection-media">{% graphPlaceholder "#F5C518", "In arrivo", "Met-Encefalina PC" %}</div>
-        <div class="collection-body">
-          <h3 class="collection-title">Met-Encefalina (PC)</h3>
-          <p class="collection-subtitle">Il piacere, in un contesto neutro.</p>
-        </div>
-      </div>
-      <div class="collection-card">
-        <div class="collection-media">{% graphPlaceholder "#E89A1A", "In arrivo", "Met-Encefalina Bic" %}</div>
-        <div class="collection-body">
-          <h3 class="collection-title">Met-Encefalina (Bic)</h3>
-          <p class="collection-subtitle">Lo stesso piacere, in un contesto carico.</p>
-        </div>
-      </div>
-      <div class="collection-card">
-        <div class="collection-media">{% graphPlaceholder "#D4570A", "In arrivo", "CRF" %}</div>
-        <div class="collection-body">
-          <h3 class="collection-title">CRF</h3>
-          <p class="collection-subtitle">Le farfalle: l'ansia-eccitazione.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FASE 3 - LEGAME -->
-  <div class="phase-heading">
-    <span class="phase-kicker">Fase 3</span>
-    <h2 class="gjs-t-h2">Legame</h2>
-  </div>
-  <section class="collections-section">
-    <div class="collections-grid">
-      <div class="collection-card">
-        <div class="collection-media">{% graphPlaceholder "#2B7BFF", "In arrivo", "Ossitocina" %}</div>
-        <div class="collection-body">
-          <h3 class="collection-title">Ossitocina</h3>
-          <p class="collection-subtitle">Il riconoscimento, il «diventare mio».</p>
-        </div>
-      </div>
-      <div class="collection-card">
-        <div class="collection-media">{% graphPlaceholder "#8B35D6", "In arrivo", "Vasopressina" %}</div>
-        <div class="collection-body">
-          <h3 class="collection-title">Vasopressina</h3>
-          <p class="collection-subtitle">Il possesso, la vigilanza, la gelosia.</p>
-        </div>
-      </div>
-      <div class="collection-card">
-        <div class="collection-media">{% graphPlaceholder "#00C9B1", "In arrivo", "Beta-Endorfina" %}</div>
-        <div class="collection-body">
-          <h3 class="collection-title">β-Endorfina</h3>
-          <p class="collection-subtitle">L'euforia: il mondo cambiato.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- REDIRECT AGLI APPROFONDIMENTI -->
+  <a class="deep-link" href="/works/emotion-in-matter/le-otto-molecole/approfondimenti/">
+    <span class="deep-kicker">Approfondimenti</span>
+    <h2>Perché queste otto molecole, e cosa sono</h2>
+    <p>Le tre fasi dell'amore secondo Helen Fisher, molecola per molecola: cosa rappresentano, che sensazione portano, perché proprio queste.</p>
+    <span class="deep-cta">Scopri →</span>
+  </a>
 </main>

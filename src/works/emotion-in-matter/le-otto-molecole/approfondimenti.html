@@ -1,0 +1,117 @@
+---
+layout: base.njk
+title: "Approfondimenti · Le Otto Molecole — Andrea Bencini"
+description: "Perché queste otto molecole e cosa sono: le tre fasi dell'amore secondo Helen Fisher — Desiderio, Attrazione, Legame — molecola per molecola, con sensazioni e colori."
+ogDescription: "Le otto molecole dell'amore, molecola per molecola: le tre fasi di Helen Fisher, sensazioni e colori."
+extraCss:
+  - /collection/collectionStyle.css
+---
+<style>
+  .collections-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; justify-items: center; }
+  .collection-card { width: 100%; max-width: 420px; }
+  .phase-heading { width: min(1100px, calc(100% - 40px)); margin: 2.5rem auto 0.5rem; }
+  .phase-heading .phase-kicker { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(100 116 139); }
+  .phase-heading h2 { margin: 0.2rem 0 0; }
+  .back-link { width: min(1100px, calc(100% - 40px)); margin: 0 auto 0.5rem; display: block; font-size: 0.9rem; opacity: 0.75; }
+</style>
+
+<main class="main-content">
+  <section class="hero-section">
+    <div class="hero-container">
+      <a class="back-link gjs-t-link" href="/works/emotion-in-matter/le-otto-molecole/">← Le Otto Molecole</a>
+      <h1 class="gjs-t-h1 hero-title">Perché queste otto molecole</h1>
+      <p class="hero-collection-subtitle">
+        La scienza descrive l'amore non come un unico sentimento, ma come tre sistemi distinti — e sovrapposti. La biologa Helen Fisher li chiama <strong>Desiderio</strong>, <strong>Attrazione</strong> e <strong>Legame</strong>: ognuno guidato da molecole diverse. Queste otto molecole sono i protagonisti di quei tre sistemi.
+      </p>
+      <p class="hero-collection-subtitle">
+        C'è anche un vincolo di metodo nella scelta: sono tutte <strong>peptidi</strong>. Solo i peptidi hanno una struttura che si ripiega, e quindi possono diventare un grafo. Molecole senza questa struttura (come dopamina o serotonina) restano fuori — non per importanza, ma perché non "si piegano". Come nasce il grafo da una molecola è spiegato nel <a class="gjs-t-link" href="/method/">Method</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- FASE 1 - DESIDERIO -->
+  <div class="phase-heading">
+    <span class="phase-kicker">Fase 1 · l'accendersi</span>
+    <h2 class="gjs-t-h2">Desiderio</h2>
+  </div>
+  <section class="collections-section">
+    <div class="collections-grid">
+      <div class="collection-card">
+        <div class="collection-media">{% graphPlaceholder "#E8350A", "GnRH", "GnRH" %}</div>
+        <div class="collection-body">
+          <h3 class="collection-title">GnRH</h3>
+          <p class="collection-subtitle">L'innesco ormonale del desiderio: l'accendersi.</p>
+        </div>
+      </div>
+      <div class="collection-card">
+        <div class="collection-media">{% graphPlaceholder "#FF6B47", "Sostanza P", "Sostanza P" %}</div>
+        <div class="collection-body">
+          <h3 class="collection-title">Sostanza P</h3>
+          <p class="collection-subtitle">Il segnale del dolore e della mancanza: volere ciò che manca.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FASE 2 - ATTRAZIONE -->
+  <div class="phase-heading">
+    <span class="phase-kicker">Fase 2 · l'ossessione dolce</span>
+    <h2 class="gjs-t-h2">Attrazione</h2>
+  </div>
+  <section class="collections-section">
+    <div class="collections-grid">
+      <div class="collection-card">
+        <div class="collection-media">{% graphPlaceholder "#F5C518", "Met-Enk PC", "Met-Encefalina PC" %}</div>
+        <div class="collection-body">
+          <h3 class="collection-title">Met-Encefalina (PC)</h3>
+          <p class="collection-subtitle">Oppioide del piacere, in un contesto neutro.</p>
+        </div>
+      </div>
+      <div class="collection-card">
+        <div class="collection-media">{% graphPlaceholder "#E89A1A", "Met-Enk Bic", "Met-Encefalina Bic" %}</div>
+        <div class="collection-body">
+          <h3 class="collection-title">Met-Encefalina (Bic)</h3>
+          <p class="collection-subtitle">Lo stesso piacere, ma in un contesto carico: il contesto cambia la molecola.</p>
+        </div>
+      </div>
+      <div class="collection-card">
+        <div class="collection-media">{% graphPlaceholder "#D4570A", "CRF", "CRF" %}</div>
+        <div class="collection-body">
+          <h3 class="collection-title">CRF</h3>
+          <p class="collection-subtitle">L'ormone dello stress che qui diventa le farfalle: ansia ed eccitazione.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FASE 3 - LEGAME -->
+  <div class="phase-heading">
+    <span class="phase-kicker">Fase 3 · restare</span>
+    <h2 class="gjs-t-h2">Legame</h2>
+  </div>
+  <section class="collections-section">
+    <div class="collections-grid">
+      <div class="collection-card">
+        <div class="collection-media">{% graphPlaceholder "#2B7BFF", "Ossitocina", "Ossitocina" %}</div>
+        <div class="collection-body">
+          <h3 class="collection-title">Ossitocina</h3>
+          <p class="collection-subtitle">La molecola del riconoscimento e della fiducia: il «diventare mio».</p>
+        </div>
+      </div>
+      <div class="collection-card">
+        <div class="collection-media">{% graphPlaceholder "#8B35D6", "Vasopressina", "Vasopressina" %}</div>
+        <div class="collection-body">
+          <h3 class="collection-title">Vasopressina</h3>
+          <p class="collection-subtitle">Il rovescio del legame: possesso, vigilanza, gelosia.</p>
+        </div>
+      </div>
+      <div class="collection-card">
+        <div class="collection-media">{% graphPlaceholder "#00C9B1", "Beta-Endorfina", "Beta-Endorfina" %}</div>
+        <div class="collection-body">
+          <h3 class="collection-title">β-Endorfina</h3>
+          <p class="collection-subtitle">L'euforia degli oppioidi endogeni: il mondo cambiato.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
