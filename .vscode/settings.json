@@ -1,0 +1,6 @@
+{
+  "//": "Live Server serve la cartella _site (l'output di Eleventy), non la radice.",
+  "//2": "Ricorda: Live Server NON ricostruisce. Tieni aperto in un terminale 'npx @11ty/eleventy --watch' per rigenerare _site a ogni salvataggio.",
+  "liveServer.settings.root": "/_site",
+  "liveServer.settings.file": "index.html"
+}

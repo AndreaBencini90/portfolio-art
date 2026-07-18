@@ -7,9 +7,6 @@ extraCss:
   - /collection/collectionStyle.css
 ---
 <style>
-  .ph { height: 220px; display: flex; align-items: flex-end; padding: 12px 14px;
-        color: #fff; font-family: Inter, sans-serif; font-weight: 600; font-size: 11px;
-        letter-spacing: 0.1em; text-transform: uppercase; }
   .wip-note { width: min(1100px, calc(100% - 40px)); margin: 0 auto 1.5rem; padding: 10px 14px;
               border: 1px dashed rgba(15,23,42,0.25); border-radius: 12px; font-size: 14px; opacity: 0.8; }
 </style>
@@ -31,7 +28,7 @@ extraCss:
   <section class="collections-section">
     <div class="collections-grid">
       <div class="collection-card">
-        <div class="collection-media"><div class="ph" style="background: linear-gradient(135deg, #00C9B1, #2B7BFF 60%, #FF6B47);">In arrivo</div></div>
+        <div class="collection-media">{% graphPlaceholder "linear-gradient(135deg, #00C9B1, #2B7BFF 60%, #FF6B47)", "In arrivo", "Fusione" %}</div>
         <div class="collection-body">
           <h3 class="collection-title">I. Fusione</h3>
           <p class="collection-subtitle">L'io che si scioglie. Il pieno: euforia e riconoscimento che perdono i contorni.</p>
@@ -39,7 +36,7 @@ extraCss:
       </div>
 
       <div class="collection-card">
-        <div class="collection-media"><div class="ph" style="background: linear-gradient(135deg, #8B35D6, #0B3B3C 55%, #FF6B47);">In arrivo</div></div>
+        <div class="collection-media">{% graphPlaceholder "linear-gradient(135deg, #8B35D6, #0B3B3C 55%, #FF6B47)", "In arrivo", "Ossessione" %}</div>
         <div class="collection-body">
           <h3 class="collection-title">II. Ossessione</h3>
           <p class="collection-subtitle">Il possesso malato. La stretta: dissonanze e un segnale sfasato, il «malato».</p>
@@ -47,7 +44,7 @@ extraCss:
       </div>
 
       <div class="collection-card">
-        <div class="collection-media"><div class="ph" style="background: linear-gradient(135deg, #FF6B47, #0B3B3C);">In arrivo</div></div>
+        <div class="collection-media">{% graphPlaceholder "linear-gradient(135deg, #FF6B47, #0B3B3C)", "In arrivo", "Assenza" %}</div>
         <div class="collection-body">
           <h3 class="collection-title">III. Assenza</h3>
           <p class="collection-subtitle">Amare il vuoto. Un nodo presente ma senza archi: presenza senza connessione.</p>
@@ -55,7 +52,7 @@ extraCss:
       </div>
 
       <div class="collection-card">
-        <div class="collection-media"><div class="ph" style="background: linear-gradient(135deg, #2B7BFF, #4Fae8f);">In arrivo</div></div>
+        <div class="collection-media">{% graphPlaceholder "linear-gradient(135deg, #2B7BFF, #4Fae8f)", "In arrivo", "Quiete" %}</div>
         <div class="collection-body">
           <h3 class="collection-title">IV. Quiete</h3>
           <p class="collection-subtitle">La tenerezza matura. Il rilascio: molto spazio, archi larghi, tutto allineato.</p>
