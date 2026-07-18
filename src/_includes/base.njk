@@ -105,5 +105,7 @@
 
     <!-- JS -->
     <script type="module" src="/app.js"></script>
+    {% for js in extraScripts %}<script src="{{ js }}"></script>
+    {% endfor %}
   </body>
 </html>

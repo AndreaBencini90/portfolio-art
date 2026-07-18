@@ -1,0 +1,89 @@
+---
+layout: base.njk
+title: "Toroidal Lattice — Loop SpaceTime | Andrea Bencini"
+description: "Toroidal Lattice: uno spazio che si ripiega su se stesso, abolendo i confini e l'idea di origine. Serie del ciclo Loop SpaceTime."
+ogDescription: "Uno spazio che si ripiega su se stesso, abolendo confini e origine. Serie del ciclo Loop SpaceTime."
+extraCss:
+  - /collection/collectionStyle.css
+extraScripts:
+  - /gallery.js
+---
+<style>
+  .collections-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; justify-items: center; }
+  .collection-card { width: 100%; max-width: 420px; }
+</style>
+
+<main class="main-content">
+  <section class="hero-section">
+    <div class="hero-container">
+      <h1 class="gjs-t-h1 hero-title" data-i18n="loop-spacetime.collection.toridallattice.title">Toroidal Lattice</h1>
+      <p class="hero-collection-subtitle" data-i18n="loop-spacetime.collection.toridallattice.text">
+        The Toroidal Lattice represents a space that folds back onto itself, abolishing boundaries. There is no exterior and no origin: every direction returns, as if the universe recognized only its own rhythm.
+      </p>
+      <p class="hero-collection-subtitle" data-i18n="loop-spacetime.collection.toridallattice.text2">
+        In Loop Quantum Gravity, spacetime is discrete and relational, often represented as a network of nodes, and gravity emerges from the relations between them.
+      </p>
+    </div>
+  </section>
+
+  <section class="collections-section">
+    <div class="collections-grid">
+      <a class="collection-card" data-gallery="toroidal" href="/img/loop-space-time-img/toroidal-lattice/toroidal0005.png">
+        <div class="collection-media">
+          <img loading="lazy" src="/img/loop-space-time-img/toroidal-lattice/toroidal0005.png" alt="Toroidal Lattice artwork" />
+        </div>
+        <div class="collection-body">
+          <h3 class="collection-title">Toroidal Lattice</h3>
+          <p class="collection-subtitle">2025 · Digital print on canvas · 120×120 cm</p>
+          <span class="collection-cta" data-i18n="loop-spacetime.collections.explore">Explore →</span>
+        </div>
+      </a>
+
+      <a class="collection-card" data-gallery="toroidal" href="/img/loop-space-time-img/toroidal-lattice/00002_screenshot_CerchioToroidale.png">
+        <div class="collection-media">
+          <img loading="lazy" src="/img/loop-space-time-img/toroidal-lattice/00002_screenshot_CerchioToroidale.png" alt="Toroidal Lattice artwork" />
+        </div>
+        <div class="collection-body">
+          <h3 class="collection-title">Toroidal Lattice</h3>
+          <p class="collection-subtitle">2025 · Digital print on canvas · 120×120 cm</p>
+          <span class="collection-cta" data-i18n="loop-spacetime.collections.explore">Explore →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="related-nodes" data-current="toroidal">
+    <div class="related-header">
+      <h2 class="gjs-t-h2 related-title">Other nodes in the network</h2>
+    </div>
+    <div class="related-grid">
+      <a class="gjs-t-border related-card" data-node="toroidal" href="/works/loop-space-time/toroidal-lattice/">
+        <div class="related-card-top"><span class="related-kicker">Collection</span><span class="related-dot" aria-hidden="true">●</span></div>
+        <h3 class="related-card-title">Toroidal Lattice</h3>
+        <p class="related-card-text">A self-folding space that dissolves boundaries and challenges the notion of origin.</p>
+        <span class="related-cta">Explore →</span>
+      </a>
+      <a class="gjs-t-border related-card" data-node="spin" href="/works/loop-space-time/spin-network/">
+        <div class="related-card-top"><span class="related-kicker">Collection</span><span class="related-dot" aria-hidden="true">●</span></div>
+        <h3 class="related-card-title">Spin Network Studies</h3>
+        <p class="related-card-text">Discrete geometries where continuity emerges from finite relational structures.</p>
+        <span class="related-cta">Explore →</span>
+      </a>
+      <a class="gjs-t-border related-card" data-node="graphity" href="/works/loop-space-time/quantum-graphity/">
+        <div class="related-card-top"><span class="related-kicker">Collection</span><span class="related-dot" aria-hidden="true">●</span></div>
+        <h3 class="related-card-title">Quantum Graphity</h3>
+        <p class="related-card-text">Emergent structures where space arises from relations between elements.</p>
+        <span class="related-cta">Explore →</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- LIGHTBOX (gallery.js) -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lightbox-backdrop" data-close></div>
+  <button class="lightbox-close" type="button" data-close aria-label="Close">×</button>
+  <button class="lightbox-nav prev" type="button" data-prev aria-label="Previous">‹</button>
+  <img class="lightbox-img" id="lightboxImg" alt="" />
+  <button class="lightbox-nav next" type="button" data-next aria-label="Next">›</button>
+</div>

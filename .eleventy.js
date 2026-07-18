@@ -13,6 +13,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "collection/collectionStyle.css": "collection/collectionStyle.css" });
   eleventyConfig.addPassthroughCopy({ "app.js": "app.js" });
   eleventyConfig.addPassthroughCopy({ "analytics.js": "analytics.js" });
+  eleventyConfig.addPassthroughCopy({ "gallery.js": "gallery.js" });
   eleventyConfig.addPassthroughCopy({ "modules": "modules" });
 
   // File speciali per pubblicazione su GitHub Pages
