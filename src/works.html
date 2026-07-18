@@ -1,0 +1,86 @@
+---
+layout: base.njk
+title: "Works — Andrea Bencini | Collezioni di arte generativa"
+description: "Le opere di Andrea Bencini, organizzate in collezioni generative nate da grafi, reti e processi computazionali. Dalla serie Loop SpaceTime alle strutture emergenti."
+ogDescription: "Le opere organizzate in collezioni generative: dalla serie Loop SpaceTime alle strutture emergenti."
+---
+<style>
+  .collections-section { padding-bottom: 40px; }
+  .collections-grid {
+    width: min(1100px, calc(100% - 40px));
+    margin: 0 auto;
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  @media (max-width: 900px) { .collections-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 600px) { .collections-grid { grid-template-columns: 1fr; } }
+  .collection-card {
+    text-decoration: none; color: inherit;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 18px; overflow: hidden; background: #fff; display: block;
+  }
+  .collection-media img {
+    width: 100%; height: 220px; object-fit: cover; display: block;
+    transform: scale(1); transition: transform 220ms ease;
+  }
+  .collection-body { padding: 14px 14px 16px; }
+  .collection-title { margin: 0 0 6px; font-size: 18px; line-height: 1.2; }
+  .collection-subtitle { margin: 0 0 10px; opacity: 0.75; font-size: 14px; line-height: 1.4; }
+  .collection-cta { font-size: 14px; opacity: 0.9; }
+  .collection-card:hover { border-color: rgba(15, 23, 42, 0.22); }
+  .collection-card:hover .collection-media img { transform: scale(1.02); }
+</style>
+
+<main class="main-content">
+  <!-- HERO WORKS -->
+  <section class="hero-section">
+    <div class="hero-container">
+      <h1 class="gjs-t-h1 hero-title" data-i18n="works.title">Works</h1>
+      <p class="hero-subtitle" data-i18n="works.intro">
+        The works are organized into collections, each originating from a generative process and a specific conceptual investigation.
+      </p>
+    </div>
+  </section>
+
+  <!-- HUB COLLEZIONI (cicli) -->
+  <section class="collections-section">
+    <div class="collections-grid">
+      <!-- Ciclo: Loop SpaceTime -->
+      <a class="collection-card" href="/works/loop-space-time/">
+        <div class="collection-media">
+          <img
+            loading="lazy"
+            src="/img/loop-space-time-img/quantum-graphity/00017_quantum_graphity.jpg"
+            alt="Preview of the Loop SpaceTime cycle"
+            data-i18n-attr="alt:works.collection.loop-space-time.alt"
+          />
+        </div>
+        <div class="collection-body">
+          <h3 class="collection-title" data-i18n="works.collection.loop-space-time.title">
+            Works from Loop SpaceTime-Quantum Series.
+          </h3>
+          <p class="collection-subtitle" data-i18n="works.collection.loop-space-time.text">
+            A research into emergent structures where space is not given, but arises from relationships between elements.
+          </p>
+          <span class="collection-cta" data-i18n="works.collections.explore">Explore →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- SEO text -->
+<section class="seo-text">
+  <h2>Works by Andrea Bencini</h2>
+  <p>
+    The works of Andrea Bencini explore generative art through networks, emergent structures
+    and computational processes. His practice lies at the intersection of art, science and philosophy,
+    focusing on complex systems and relational structures.
+  </p>
+  <p>
+    Le opere di Andrea Bencini esplorano l'arte generativa attraverso reti, strutture emergenti e processi computazionali.
+    Il lavoro nasce dall'incontro tra arte, scienza e filosofia, con particolare attenzione ai sistemi complessi
+    e alla relazione tra gli elementi.
+  </p>
+</section>
