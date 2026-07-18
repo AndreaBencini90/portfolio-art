@@ -19,7 +19,12 @@ module.exports = function (eleventyConfig) {
   // File speciali per pubblicazione su GitHub Pages
   eleventyConfig.addPassthroughCopy({ "CNAME": "CNAME" });
   eleventyConfig.addPassthroughCopy({ "robots.txt": "robots.txt" });
-  eleventyConfig.addPassthroughCopy({ "sitemap.xml": "sitemap.xml" });
+  // NB: sitemap.xml NON è più passthrough — la genera src/sitemap.njk (sempre in sync)
+
+  // Filtro data ISO breve (YYYY-MM-DD) per la sitemap
+  eleventyConfig.addFilter("isoDate", (d) =>
+    (d instanceof Date ? d : new Date(d)).toISOString().slice(0, 10)
+  );
 
   // ==========================================================
   // Shortcode: placeholder "grafo" generativo per le opere non ancora esportate.
