@@ -67,7 +67,10 @@ function guessDefaultLang(langKey) {
 async function setLanguage(lang, options) {
   const { selectors, langKey, files, root, doc } = options;
 
-  const base = doc.documentElement.dataset.base || './';
+  // Se <html> non ha data-base, usa percorsi assoluti dalla radice (/i18n/...),
+  // così funziona da qualsiasi profondità di URL (clean-URL).
+  const rawBase = doc.documentElement.dataset.base;
+  const base = (rawBase === undefined || rawBase === null) ? '' : rawBase;
   const basePath = `${base}/i18n/${lang}`;
 
   const dict = await loadTranslations(lang, files, basePath);

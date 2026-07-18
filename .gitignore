@@ -1,0 +1,7 @@
+# Documentazione interna: NON deve finire su GitHub né sul sito.
+# Resta solo sul computer locale.
+_docs-interni/
+
+# Eleventy: dipendenze e output del build (rigenerati, non si versionano)
+node_modules/
+_site/
