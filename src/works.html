@@ -22,9 +22,15 @@ ogDescription: "Le opere organizzate in collezioni generative: dalla serie Loop 
     border: 1px solid rgba(15, 23, 42, 0.12);
     border-radius: 18px; overflow: hidden; background: #fff; display: block;
   }
+  .collection-media {
+    height: 220px; background: #fff;
+  }
   .collection-media img {
-    width: 100%; height: 220px; object-fit: cover; display: block;
+    width: 100%; height: 100%; object-fit: cover; display: block;
     transform: scale(1); transition: transform 220ms ease;
+  }
+  .collection-media img[src*="emotion-in-matter"] {
+    object-fit: contain;
   }
   .collection-body { padding: 14px 14px 16px; }
   .collection-title { margin: 0 0 6px; font-size: 18px; line-height: 1.2; }
@@ -68,9 +74,13 @@ ogDescription: "Le opere organizzate in collezioni generative: dalla serie Loop 
 
       <!-- Ciclo: Emotion in Matter (impalcatura) -->
       <a class="collection-card" href="/works/emotion-in-matter/">
-        <div class="collection-media"><img src="/img/emotion-in-matter/LovesPhase_angles_grado_ranking_red_centered.jpg" alt="Emotion in Matter" style="width:100%;height:auto;display:block;border-radius:12px;object-fit:contain;"></div>
+        <div class="collection-media"><img
+            loading="lazy"
+            src="/img/emotion-in-matter/LovesPhase_angles_grado_ranking_red_centered.jpg"
+            alt="Verso una teoria dell'approssimazione dell'amore"
+          /></div>
         <div class="collection-body">
-          <h3 class="collection-title">Verso una teoria dell'approssimazione dell'amore</h3>
+          <h3 class="collection-title">Emotion in Matter</h3>
           <p class="collection-subtitle">
             La neurochimica del sentire tradotta in grafi: ogni molecola dell'emozione diventa una rete di relazioni.
           </p>
