@@ -1,0 +1,108 @@
+---
+layout: base.njk
+title: "Metodo · Emotion in Matter — Andrea Bencini"
+description: "Il metodo tecnico dietro Emotion in Matter: dalla struttura molecolare reale (PDB) alla sua rete statistica implicita (ISN), passo per passo — e lo scarto come contenuto dell'opera."
+ogDescription: "Dalla struttura molecolare reale (PDB) alla rete statistica (ISN), passo per passo. Lo scarto come contenuto."
+---
+<style>
+  .method-lead { max-width: 780px; }
+  .pipeline { width: min(1100px, calc(100% - 40px)); margin: 2rem auto 0; overflow-x: auto; }
+  .pipeline pre { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; line-height: 1.7;
+    background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.10); border-radius: 12px; padding: 1.1rem 1.3rem; margin: 0; }
+  .method-step { border-top: 1px solid rgba(15,23,42,0.12); padding-top: 1.3rem; margin-top: 1.8rem; }
+  .method-step .step-kicker { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(100 116 139); }
+  .method-step h3 { margin: 0.3rem 0 0.5rem; font-size: 1.1rem; }
+  .method-closing { margin-top: 2.4rem; padding: 1.4rem 1.6rem; border-left: 3px solid rgba(15,23,42,0.4); background: rgba(15,23,42,0.02); }
+  .back-link { display: block; font-size: 0.9rem; opacity: 0.75; margin-bottom: 0.4rem; }
+  .err-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+  @media (max-width: 640px) { .err-grid { grid-template-columns: 1fr; } }
+  .err-card { border: 1px solid rgba(15,23,42,0.12); border-radius: 12px; padding: 1rem 1.1rem; }
+  .err-card .err-dot { font-weight: 700; }
+</style>
+
+<main class="main-content">
+  <section class="bio-section">
+    <div class="bio-container">
+      <a class="back-link gjs-t-link" href="/method/">← Method</a>
+      <h1 class="gjs-t-h1 bio-title">Metodo · Emotion in Matter</h1>
+      <p class="bio-intro method-lead">
+        Ogni opera parte da una <strong>struttura molecolare reale</strong> — le coordinate atomiche misurate di un peptide, depositate nella Protein Data Bank — e la traduce nella sua <strong>rete statistica implicita</strong> (ISN): non la molecola, ma l'ombra delle sue relazioni. Ecco il percorso, passo per passo.
+      </p>
+
+      <div class="pipeline">
+        <pre>PDB
+ └─ grafo di contatti        atomi = nodi · distanza &lt; 4.5 Å = archi
+     └─ Laplaciana + GFT      base di Fourier del grafo (le "frequenze")
+         └─ covarianza spettrale   Σ consistente con la geometria
+             └─ campioni  X ~ N(0, Σ)     (oppure conformeri NMR reali)
+                 └─ GraphicalLasso   →   matrice di precisione Θ̂
+                     └─ soglia |Θ̂| &gt; T   →   ISN (il grafo)
+                         └─ GEXF   →   Gephi</pre>
+      </div>
+
+      <div class="method-step">
+        <span class="step-kicker">01 · dato</span>
+        <h3>PDB → grafo di contatti</h3>
+        <p class="hero-subtitle">
+          Si leggono le coordinate 3D di ogni atomo pesante (niente idrogeni). Due atomi diventano nodi connessi se la loro distanza è sotto una soglia (4.5 Å). La struttura 3D è l'informazione più diretta e onesta che abbiamo: il grafo di contatti è la <em>forma vera</em> contro cui misureremo la stima. Si usano tutti gli atomi, non i soli Cα: per peptidi di 5–11 residui i Cα darebbero meno di 12 nodi, troppo pochi per qualsiasi statistica.
+        </p>
+      </div>
+
+      <div class="method-step">
+        <span class="step-kicker">02 · struttura</span>
+        <h3>Laplaciana e Graph Fourier Transform</h3>
+        <p class="hero-subtitle">
+          Dalla matrice del grafo si ricava la Laplaciana e i suoi autovettori: la <strong>base di Fourier del grafo</strong>. Gli autovalori sono le sue "frequenze": basse = movimenti globali (il respiro della catena), alte = oscillazioni locali tra atomi vicini. Serve a generare dati che rispettino la geometria della molecola, non un rumore qualsiasi.
+        </p>
+      </div>
+
+      <div class="method-step">
+        <span class="step-kicker">03 · covarianza</span>
+        <h3>Covarianza spettrale</h3>
+        <p class="hero-subtitle">
+          Si costruisce una covarianza Σ coerente col grafo: atomi vicini risultano correlati. Un parametro (ε) regola quanto la struttura è pronunciata. È, di fatto, un campo aleatorio gaussiano definito sulla molecola.
+        </p>
+      </div>
+
+      <div class="method-step">
+        <span class="step-kicker">04 · stima</span>
+        <h3>GraphicalLasso → rete statistica (ISN)</h3>
+        <p class="hero-subtitle">
+          Dai dati si stima una <strong>matrice di precisione sparsa</strong>: due nodi sono connessi se restano dipendenti anche condizionando su tutti gli altri. È la definizione stessa di arco in una <strong>Implicit Statistical Network</strong>. Il parametro di sparsità è scelto in cross-validation. Una soglia finale decide quali archi tenere — ed è già una scelta estetica: soglia alta = grafo conservativo, soglia bassa = grafo generoso.
+        </p>
+      </div>
+
+      <!-- LO SCARTO -->
+      <div class="method-step">
+        <span class="step-kicker">05 · scarto — la mia parte</span>
+        <h3>Lo scarto non è un residuo: è il contenuto</h3>
+        <p class="hero-subtitle">
+          La molecola genera i dati, ma i dati non contengono abbastanza informazione per tornare esattamente alla molecola. Questa perdita è fondamentale, non accidentale — è la distanza tra una cosa e la sua mappa statistica. L'opera mostra proprio quella distanza, onestamente, senza nasconderla. Lo scarto vive in due forme:
+        </p>
+        <div class="err-grid">
+          <div class="err-card">
+            <p class="err-dot" style="color:#E63C3C;">Falsi positivi — i fantasmi</p>
+            <p class="hero-subtitle" style="margin:0;">Archi che la statistica stima ma la materia non ha. Le proiezioni, le aspettative, i legami percepiti che non corrispondono a un contatto reale.</p>
+          </div>
+          <div class="err-card">
+            <p class="err-dot" style="color:#3C78E6;">Falsi negativi — le ombre</p>
+            <p class="hero-subtitle" style="margin:0;">Contatti reali che il modello non "vede": troppo deboli, troppo locali per emergere. La vicinanza senza relazione.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="method-closing">
+        <p class="hero-subtitle" style="margin:0 0 0.8rem;">
+          <strong>Il caso decide.</strong> Con un seme diverso, un parametro diverso, più o meno campioni, la rete cambia: alcuni archi appaiono, altri spariscono. Non arbitrariamente — è il comportamento normale di ogni modello statistico — ma realmente. Ogni esecuzione produce un'opera leggermente diversa.
+        </p>
+        <p class="hero-subtitle" style="margin:0;">
+          Qui sta la differenza con un'immagine da prompt: il percorso è ancorato a un dato reale e riproducibile <em>fino a un certo punto</em> — poi cominciano le scelte (la soglia, i parametri, il seme, la resa). L'opera è la traccia di quelle scelte. Esiste anche una versione che mostra <strong>solo</strong> lo scarto — solo fantasmi e ombre: è la direzione naturale di questo lavoro.
+        </p>
+      </div>
+
+      <p class="hero-subtitle" style="margin-top:2rem;">
+        → Torna alle <a class="gjs-t-link" href="/works/emotion-in-matter/le-otto-molecole/">opere</a> · scopri <a class="gjs-t-link" href="/works/emotion-in-matter/le-otto-molecole/approfondimenti/">perché queste otto molecole</a>.
+      </p>
+    </div>
+  </section>
+</main>
