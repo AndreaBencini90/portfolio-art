@@ -1,0 +1,119 @@
+---
+layout: base.njk
+lang: en
+title: "Method · Emotion in Matter — Andrea Bencini"
+description: "The method behind Emotion in Matter: knowing the molecule already, trying to find it again from the data with the most rigorous statistical method available — and the discrepancy, the error sought with precision, as the content of the work."
+ogDescription: "Trying to find a molecule we already know from the data, with the most rigorous method available. The error sought with precision is the work."
+---
+<style>
+  .method-lead { max-width: 780px; }
+  .pipeline { width: min(1100px, calc(100% - 40px)); margin: 2rem auto 0; overflow-x: auto; }
+  .pipeline pre { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; line-height: 1.7;
+    background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.10); border-radius: 12px; padding: 1.1rem 1.3rem; margin: 0; }
+  .method-step { border-top: 1px solid rgba(15,23,42,0.12); padding-top: 1.3rem; margin-top: 1.8rem; }
+  .method-step .step-kicker { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(100 116 139); }
+  .method-step h3 { margin: 0.3rem 0 0.6rem; font-size: 1.1rem; }
+  .intento { font-style: italic; color: rgb(71 85 105); }
+  .method-closing { margin-top: 2.4rem; padding: 1.4rem 1.6rem; border-left: 3px solid rgba(15,23,42,0.4); background: rgba(15,23,42,0.02); }
+  .back-link { display: block; font-size: 0.9rem; opacity: 0.75; margin-bottom: 0.4rem; }
+  .err-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+  @media (max-width: 640px) { .err-grid { grid-template-columns: 1fr; } }
+  .err-card { border: 1px solid rgba(15,23,42,0.12); border-radius: 12px; padding: 1rem 1.1rem; }
+  .err-card .err-dot { font-weight: 700; }
+</style>
+
+<main class="main-content">
+  <section class="bio-section">
+    <div class="bio-container">
+      <a class="back-link gjs-t-link" href="/en/method/">← Method</a>
+      <h1 class="gjs-t-h1 bio-title">Method · Emotion in Matter</h1>
+      <p class="bio-intro method-lead">
+        The shape of this molecule we already know: it's measured, deposited, certain. The work isn't meant to discover it. It's meant to perform a <strong>gesture</strong> — trying to find it again <em>starting from the data</em>, with the most rigorous method I can build. I know from the start that I will never get back to the molecule exactly: that's the whole point. Searching with precision, and failing. That distance — between the thing and its estimate — is the work.
+      </p>
+
+      <div class="pipeline">
+        <pre>known molecule (PDB)
+ └─ contact graph            atoms = nodes · close in space = edges
+     └─ turned into a covariance    (nearby atoms vary together)
+         └─ data generated from that distribution
+             └─ GraphicalLasso   →   which relations are direct?
+                 └─ a threshold   →   the estimated network (ISN)
+                     └─ the discrepancy  →   what the estimate can't recover</pre>
+      </div>
+
+      <div class="method-step">
+        <span class="step-kicker">01 · the reference</span>
+        <h3>The true shape: the contact graph</h3>
+        <p class="hero-subtitle">
+          We start from the 3D coordinates of every heavy atom (hydrogens are left out). Two atoms become connected nodes when they're close enough in space — under a threshold of about half a nanometre (4.5 ångströms). This is the <em>contact graph</em>: the real shape of the molecule. All atoms are kept, not just the alpha-carbons: for a peptide of 5–11 residues, Cα atoms alone would give barely a dozen nodes — too few for any statistics.
+        </p>
+        <p class="hero-subtitle intento">
+          Intent: fix the answer we already know — the yardstick against which everything else will be measured.
+        </p>
+      </div>
+
+      <div class="method-step">
+        <span class="step-kicker">02 · generating the data</span>
+        <h3>From the shape, a distribution — and from that, data</h3>
+        <p class="hero-subtitle">
+          I have no experimental measurements of "how this molecule behaves," so I <strong>manufacture</strong> the data myself, starting from its shape. I translate the graph into a <em>covariance</em>: a rule stating that atoms close in the structure tend to vary together, distant ones don't. From this distribution I draw hundreds of samples — vectors of numbers that carry the molecule's geometry inside them, without tracing it perfectly.
+        </p>
+        <p class="hero-subtitle">
+          This isn't an arbitrary trick: that covariance coincides with the <em>Gaussian Network Model</em>, the way biophysics describes how a protein vibrates around its own shape. I didn't invent it — I found it again.
+        </p>
+        <p class="hero-subtitle intento">
+          Intent: have <em>data</em> to interrogate, data that contains the molecule but doesn't hand it back whole. From here on, I pretend not to know the answer.
+        </p>
+      </div>
+
+      <div class="method-step">
+        <span class="step-kicker">03 · estimating the relations</span>
+        <h3>GraphicalLasso: which bonds are truly direct?</h3>
+        <p class="hero-subtitle">
+          Now all I have is the data. I ask: looking at these numbers, which atoms are <em>really</em> bonded? It isn't enough to see two atoms varying together — they might both be moving because they're bonded to a third one: a merely apparent correlation. I want the <strong>direct</strong> relations, stripped of the indirect ones.
+        </p>
+        <p class="hero-subtitle">
+          For this I use <strong>GraphicalLasso</strong>. It's the tool that estimates which pairs of atoms remain dependent <em>even after accounting for all the others</em> — which is the exact definition of a direct relation — and it does so by searching for the simplest possible explanation: few connections, the ones that matter. It's the most rigorous method I know for this question, and that's exactly why I choose it: if I have to search again for a structure I already know, I want to do it with the most exact instrument, not an approximation.
+        </p>
+        <p class="hero-subtitle intento">
+          Intent: reconstruct, with the greatest statistical precision possible, the network of relations we <em>already know</em> is there. That's the whole gesture — a very serious method, aimed at something known.
+        </p>
+      </div>
+
+      <!-- THE DISCREPANCY -->
+      <div class="method-step">
+        <span class="step-kicker">04 · the discrepancy — the work</span>
+        <h3>The error sought with precision</h3>
+        <p class="hero-subtitle">
+          The estimate never gets back to the molecule exactly. Two kinds of error remain — and I don't correct them, because they're the content:
+        </p>
+        <div class="err-grid">
+          <div class="err-card">
+            <p class="err-dot" style="color:#E63C3C;">False positives — the ghosts</p>
+            <p class="hero-subtitle" style="margin:0;">Bonds the statistics estimate but the matter doesn't have. Projections, expectations: connections real in the data, absent in the structure.</p>
+          </div>
+          <div class="err-card">
+            <p class="err-dot" style="color:#3C78E6;">False negatives — the shadows</p>
+            <p class="hero-subtitle" style="margin:0;">Real contacts the model doesn't "see": too weak, too local to emerge. Proximity without relation.</p>
+          </div>
+        </div>
+        <p class="hero-subtitle intento" style="margin-top:1rem;">
+          Intent: fail with precision. I searched for the molecule with the most exact method available, and the distance that remains — the ghosts and the shadows — is what no method can recover. That distance is the work.
+        </p>
+      </div>
+
+      <div class="method-closing">
+        <p class="hero-subtitle" style="margin:0 0 0.8rem;">
+          <strong>Chance decides.</strong> With a different seed, a different parameter, more or fewer samples, the network changes: some bonds appear, others vanish. Every run produces a slightly different work — not arbitrary, but real.
+        </p>
+        <p class="hero-subtitle" style="margin:0;">
+          We know the answer and we search for it anyway, from the data, with rigour. The loss is inevitable <em>and intended</em>: it's the difference between a thing and its numerical shadow, shown honestly. There's also a version that shows <strong>only</strong> the discrepancy — only ghosts and shadows: it's the natural direction of this work.
+        </p>
+      </div>
+
+      <p class="hero-subtitle" style="margin-top:2rem;">
+        → Back to the <a class="gjs-t-link" href="/en/works/emotion-in-matter/le-otto-molecole/">works</a> · discover <a class="gjs-t-link" href="/en/works/emotion-in-matter/le-otto-molecole/approfondimenti/">why these eight molecules</a>.
+      </p>
+    </div>
+  </section>
+</main>

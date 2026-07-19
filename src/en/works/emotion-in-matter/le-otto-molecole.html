@@ -1,0 +1,72 @@
+---
+layout: base.njk
+lang: en
+title: "The Eight Molecules — Emotion in Matter | Andrea Bencini"
+description: "The Eight Molecules: generative works based on the eight neurochemical molecules of love, translated into graphs. A series from the Emotion in Matter cycle."
+ogDescription: "Generative works based on the eight molecules of love, translated into graphs."
+extraCss:
+  - /collection/collectionStyle.css
+---
+<style>
+  .collections-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; justify-items: center; }
+  .collection-card { width: 100%; max-width: 420px; }
+  .deep-link { width: min(1100px, calc(100% - 40px)); margin: 2.5rem auto 0; display: block;
+    text-decoration: none; color: inherit; border: 1px solid rgba(15,23,42,0.14); border-radius: 16px;
+    padding: 1.2rem 1.4rem; transition: border-color 160ms ease, transform 160ms ease; }
+  .deep-link:hover { border-color: rgba(15,23,42,0.30); transform: translateY(-2px); }
+  .deep-link .deep-kicker { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(100 116 139); }
+  .deep-link h2 { margin: 0.3rem 0 0.3rem; font-size: 1.15rem; }
+  .deep-link p { margin: 0; opacity: 0.8; font-size: 0.95rem; }
+  .deep-link .deep-cta { display: inline-block; margin-top: 0.6rem; font-weight: 600; }
+</style>
+
+<main class="main-content">
+  <section class="hero-section">
+    <div class="hero-container">
+      <h1 class="gjs-t-h1 hero-title">The Eight Molecules</h1>
+      <p class="hero-collection-subtitle">
+        Every work is born from the same eight neurochemical molecules of love, translated into a single graph: desire, attraction, and bonding coexisting in one network of relations. Not one molecule per work, but all of them together — each piece a different configuration of the same system.
+      </p>
+      <p class="hero-collection-subtitle" style="opacity:.7;">
+        Scaffolding: the previews below are placeholder graphs (final images coming, exported from Gephi).
+      </p>
+    </div>
+  </section>
+
+  <!-- THE WORKS (so far) -->
+  <section class="collections-section">
+    <div class="collections-grid">
+      <div class="collection-card">
+        <div class="collection-media">{% graphPlaceholder "linear-gradient(135deg, #FF4D6B, #FFA93E 50%, #4B92FF)", "Coming soon", "opera-01" %}</div>
+        <div class="collection-body">
+          <h3 class="collection-title">The Eight Molecules — I</h3>
+          <p class="collection-subtitle">2025 · Print on canvas · 120×120 cm</p>
+        </div>
+      </div>
+
+      <div class="collection-card">
+        <div class="collection-media">{% graphPlaceholder "linear-gradient(135deg, #B81B35, #B86C0E 50%, #1A58B8)", "Coming soon", "opera-02" %}</div>
+        <div class="collection-body">
+          <h3 class="collection-title">The Eight Molecules — II</h3>
+          <p class="collection-subtitle">2025 · Print on canvas · 120×120 cm</p>
+        </div>
+      </div>
+
+      <div class="collection-card">
+        <div class="collection-media">{% graphPlaceholder "linear-gradient(135deg, #FF4D6B, #F28E13 45%, #2274F2)", "Coming soon", "opera-03" %}</div>
+        <div class="collection-body">
+          <h3 class="collection-title">The Eight Molecules — III</h3>
+          <p class="collection-subtitle">2025 · Print on canvas · 120×120 cm</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LINK TO DEEP-DIVE -->
+  <a class="deep-link" href="/en/works/emotion-in-matter/le-otto-molecole/approfondimenti/">
+    <span class="deep-kicker">Deep dive</span>
+    <h2>Why these eight molecules, and what they are</h2>
+    <p>The three phases of love according to Helen Fisher, molecule by molecule: what they represent, what sensation they carry, why exactly these.</p>
+    <span class="deep-cta">Discover →</span>
+  </a>
+</main>
