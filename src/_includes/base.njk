@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ lang or 'it' }}">
+<html lang="{{ lang or 'it' }}" {% if lang %}data-lang-fixed="1"{% endif %} data-translation-url="{{ translationUrl or '' }}">
   <head>
     <title>{{ title or site.name }}</title>
     <script src="/analytics.js"></script>

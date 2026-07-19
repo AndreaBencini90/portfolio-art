@@ -57,7 +57,13 @@ function setActiveLangButton(lang, selectors, root) {
 }
 
 // Sceglie la lingua iniziale: preferenza salvata o fallback in base al browser.
-function guessDefaultLang(langKey) {
+// Se la pagina dichiara una lingua "fissa" (data-lang-fixed, pagine di prosa libera
+// tipo Method/Emotion in Matter), usa SEMPRE quella, ignorando localStorage/browser:
+// il testo di quella pagina esiste solo in quella lingua.
+function guessDefaultLang(langKey, doc) {
+  if (doc?.documentElement?.dataset.langFixed) {
+    return doc.documentElement.lang || 'it';
+  }
   const saved = localStorage.getItem(langKey);
   if (saved) return saved;
   return navigator.language?.startsWith('it') ? 'it' : 'en';
@@ -86,9 +92,20 @@ export function initI18n({ selectors, langKey, files, root = document }) {
 
   getElements(selectors.langButtons, root).forEach(btn => {
     btn.addEventListener('click', () => {
-      setLanguage(btn.dataset.lang, { selectors, langKey, files, root, doc });
+      const targetLang = btn.dataset.lang;
+      // Pagine di prosa libera (Method, Emotion in Matter...) dichiarano l'URL
+      // della loro gemella nell'altra lingua: in quel caso il bottone NAVIGA,
+      // invece di tradurre il testo sul posto (che qui non esiste come chiavi).
+      const translationUrl = doc.documentElement.dataset.translationUrl;
+      const currentLang = doc.documentElement.lang || 'it';
+      if (translationUrl && targetLang !== currentLang) {
+        localStorage.setItem(langKey, targetLang);
+        window.location.href = translationUrl;
+        return;
+      }
+      setLanguage(targetLang, { selectors, langKey, files, root, doc });
     });
   });
 
-  setLanguage(guessDefaultLang(langKey), { selectors, langKey, files, root, doc });
+  setLanguage(guessDefaultLang(langKey, doc), { selectors, langKey, files, root, doc });
 }
