@@ -1,8 +1,8 @@
 ---
 layout: base.njk
 title: "Metodo · Emotion in Matter — Andrea Bencini"
-description: "Il metodo tecnico dietro Emotion in Matter: dalla struttura molecolare reale (PDB) alla sua rete statistica implicita (ISN), passo per passo — e lo scarto come contenuto dell'opera."
-ogDescription: "Dalla struttura molecolare reale (PDB) alla rete statistica (ISN), passo per passo. Lo scarto come contenuto."
+description: "Il metodo dietro Emotion in Matter: conoscendo già la molecola, provare a ritrovarla dai dati con il metodo statistico più rigoroso — e lo scarto, l'errore cercato con precisione, come contenuto dell'opera."
+ogDescription: "Ritrovare dai dati una molecola che già conosciamo, col metodo più rigoroso. L'errore cercato con precisione è l'opera."
 ---
 <style>
   .method-lead { max-width: 780px; }
@@ -11,7 +11,8 @@ ogDescription: "Dalla struttura molecolare reale (PDB) alla rete statistica (ISN
     background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.10); border-radius: 12px; padding: 1.1rem 1.3rem; margin: 0; }
   .method-step { border-top: 1px solid rgba(15,23,42,0.12); padding-top: 1.3rem; margin-top: 1.8rem; }
   .method-step .step-kicker { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(100 116 139); }
-  .method-step h3 { margin: 0.3rem 0 0.5rem; font-size: 1.1rem; }
+  .method-step h3 { margin: 0.3rem 0 0.6rem; font-size: 1.1rem; }
+  .intento { font-style: italic; color: rgb(71 85 105); }
   .method-closing { margin-top: 2.4rem; padding: 1.4rem 1.6rem; border-left: 3px solid rgba(15,23,42,0.4); background: rgba(15,23,42,0.02); }
   .back-link { display: block; font-size: 0.9rem; opacity: 0.75; margin-bottom: 0.4rem; }
   .err-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
@@ -26,77 +27,85 @@ ogDescription: "Dalla struttura molecolare reale (PDB) alla rete statistica (ISN
       <a class="back-link gjs-t-link" href="/method/">← Method</a>
       <h1 class="gjs-t-h1 bio-title">Metodo · Emotion in Matter</h1>
       <p class="bio-intro method-lead">
-        Ogni opera parte da una <strong>struttura molecolare reale</strong> — le coordinate atomiche misurate di un peptide, depositate nella Protein Data Bank — e la traduce nella sua <strong>rete statistica implicita</strong> (ISN): non la molecola, ma l'ombra delle sue relazioni. Ecco il percorso, passo per passo.
+        Di questa molecola la forma la conosciamo già: è misurata, depositata, certa. Il lavoro non serve a scoprirla. Serve a compiere un <strong>gesto</strong> — provare a ritrovarla <em>partendo dai dati</em>, con il metodo statistico più rigoroso che riesco a costruire. So in partenza che non tornerò mai esattamente alla molecola: è proprio questo il punto. Cercare con precisione, e sbagliare. Quella distanza — tra la cosa e la sua stima — è l'opera.
       </p>
 
       <div class="pipeline">
-        <pre>PDB
- └─ grafo di contatti        atomi = nodi · distanza &lt; 4.5 Å = archi
-     └─ Laplaciana + GFT      base di Fourier del grafo (le "frequenze")
-         └─ covarianza spettrale   Σ consistente con la geometria
-             └─ campioni  X ~ N(0, Σ)     (oppure conformeri NMR reali)
-                 └─ GraphicalLasso   →   matrice di precisione Θ̂
-                     └─ soglia |Θ̂| &gt; T   →   ISN (il grafo)
-                         └─ GEXF   →   Gephi</pre>
+        <pre>molecola nota (PDB)
+ └─ grafo di contatti        atomi = nodi · vicini nello spazio = archi
+     └─ la trasformo in una covarianza      (atomi vicini variano insieme)
+         └─ genero dei dati da quella distribuzione
+             └─ GraphicalLasso   →   quali relazioni sono dirette?
+                 └─ una soglia    →   la rete stimata (ISN)
+                     └─ lo scarto  →   ciò che la stima non recupera</pre>
       </div>
 
       <div class="method-step">
-        <span class="step-kicker">01 · dato</span>
-        <h3>PDB → grafo di contatti</h3>
+        <span class="step-kicker">01 · il riferimento</span>
+        <h3>La forma vera: il grafo di contatti</h3>
         <p class="hero-subtitle">
-          Si leggono le coordinate 3D di ogni atomo pesante (niente idrogeni). Due atomi diventano nodi connessi se la loro distanza è sotto una soglia (4.5 Å). La struttura 3D è l'informazione più diretta e onesta che abbiamo: il grafo di contatti è la <em>forma vera</em> contro cui misureremo la stima. Si usano tutti gli atomi, non i soli Cα: per peptidi di 5–11 residui i Cα darebbero meno di 12 nodi, troppo pochi per qualsiasi statistica.
+          Si parte dalle coordinate 3D di ogni atomo pesante (gli idrogeni si tralasciano). Due atomi diventano nodi collegati quando sono abbastanza vicini nello spazio — sotto una soglia di circa mezzo nanometro (4,5 ångström). Questo è il <em>grafo di contatti</em>: la forma reale della molecola. Si tengono tutti gli atomi, non i soli carboni-α: per un peptide di 5–11 residui i soli Cα darebbero una decina di nodi, troppo pochi per qualunque statistica.
+        </p>
+        <p class="hero-subtitle intento">
+          Intento: fissare la risposta che già conosciamo — il metro contro cui misureremo tutto il resto.
         </p>
       </div>
 
       <div class="method-step">
-        <span class="step-kicker">02 · struttura</span>
-        <h3>Laplaciana e Graph Fourier Transform</h3>
+        <span class="step-kicker">02 · generare i dati</span>
+        <h3>Dalla forma, una distribuzione — e da questa, dei dati</h3>
         <p class="hero-subtitle">
-          Dalla matrice del grafo si ricava la Laplaciana e i suoi autovettori: la <strong>base di Fourier del grafo</strong>. Gli autovalori sono le sue "frequenze": basse = movimenti globali (il respiro della catena), alte = oscillazioni locali tra atomi vicini. Serve a generare dati che rispettino la geometria della molecola, non un rumore qualsiasi.
+          Non ho misure sperimentali di "come si comporta" questa molecola, quindi i dati <strong>li fabbrico io</strong>, a partire dalla sua forma. Traduco il grafo in una <em>covarianza</em>: una regola che dice che atomi vicini nella struttura tendono a variare insieme, atomi lontani no. Da questa distribuzione estraggo centinaia di campioni — vettori di numeri che portano dentro di sé la geometria della molecola, senza ricalcarla in modo perfetto.
+        </p>
+        <p class="hero-subtitle">
+          Non è un artificio arbitrario: quella covarianza coincide con il <em>Gaussian Network Model</em>, il modo in cui la biofisica descrive come una proteina vibra attorno alla propria forma. Non l'ho inventata — l'ho ritrovata.
+        </p>
+        <p class="hero-subtitle intento">
+          Intento: avere dei <em>dati</em> da interrogare, che contengano la molecola ma non la restituiscano intera. Da qui in poi faccio finta di non conoscere la risposta.
         </p>
       </div>
 
       <div class="method-step">
-        <span class="step-kicker">03 · covarianza</span>
-        <h3>Covarianza spettrale</h3>
+        <span class="step-kicker">03 · stimare le relazioni</span>
+        <h3>GraphicalLasso: quali legami sono davvero diretti?</h3>
         <p class="hero-subtitle">
-          Si costruisce una covarianza Σ coerente col grafo: atomi vicini risultano correlati. Un parametro (ε) regola quanto la struttura è pronunciata. È, di fatto, un campo aleatorio gaussiano definito sulla molecola.
+          Ora ho solo i dati. Mi chiedo: guardando questi numeri, quali atomi sono legati <em>davvero</em>? Non basta vedere due atomi che variano insieme — potrebbero muoversi entrambi perché legati a un terzo: una correlazione solo apparente. Voglio le relazioni <strong>dirette</strong>, ripulite da quelle indirette.
+        </p>
+        <p class="hero-subtitle">
+          Per questo uso il <strong>GraphicalLasso</strong>. È lo strumento che stima quali coppie di atomi restano dipendenti <em>anche tenendo conto di tutti gli altri</em> — che è la definizione esatta di relazione diretta — e lo fa cercando la spiegazione più semplice possibile: poche connessioni, quelle che contano. È il metodo più rigoroso che conosco per questa domanda, ed è per questo che lo scelgo: se devo ri-cercare una struttura che già conosco, voglio farlo con lo strumento più esatto, non con un'approssimazione.
+        </p>
+        <p class="hero-subtitle intento">
+          Intento: ricostruire, con la massima precisione statistica possibile, la rete di relazioni che <em>sappiamo già</em> essere lì. Il gesto è tutto qui — un metodo serissimo puntato su una cosa nota.
         </p>
       </div>
 
       <div class="method-step">
-        <span class="step-kicker">04 · stima</span>
-        <h3>GraphicalLasso → rete statistica (ISN)</h3>
+        <span class="step-kicker">04 · lo scarto — l'opera</span>
+        <h3>L'errore cercato con precisione</h3>
         <p class="hero-subtitle">
-          Dai dati si stima una <strong>matrice di precisione sparsa</strong>: due nodi sono connessi se restano dipendenti anche condizionando su tutti gli altri. È la definizione stessa di arco in una <strong>Implicit Statistical Network</strong>. Il parametro di sparsità è scelto in cross-validation. Una soglia finale decide quali archi tenere — ed è già una scelta estetica: soglia alta = grafo conservativo, soglia bassa = grafo generoso.
-        </p>
-      </div>
-
-      <!-- LO SCARTO -->
-      <div class="method-step">
-        <span class="step-kicker">05 · scarto — la mia parte</span>
-        <h3>Lo scarto non è un residuo: è il contenuto</h3>
-        <p class="hero-subtitle">
-          La molecola genera i dati, ma i dati non contengono abbastanza informazione per tornare esattamente alla molecola. Questa perdita è fondamentale, non accidentale — è la distanza tra una cosa e la sua mappa statistica. L'opera mostra proprio quella distanza, onestamente, senza nasconderla. Lo scarto vive in due forme:
+          La stima non torna mai esattamente alla molecola. Restano due tipi di errore — e non li correggo, perché sono il contenuto:
         </p>
         <div class="err-grid">
           <div class="err-card">
             <p class="err-dot" style="color:#E63C3C;">Falsi positivi — i fantasmi</p>
-            <p class="hero-subtitle" style="margin:0;">Archi che la statistica stima ma la materia non ha. Le proiezioni, le aspettative, i legami percepiti che non corrispondono a un contatto reale.</p>
+            <p class="hero-subtitle" style="margin:0;">Legami che la statistica stima ma la materia non ha. Le proiezioni, le aspettative: connessioni reali nei dati, assenti nella struttura.</p>
           </div>
           <div class="err-card">
             <p class="err-dot" style="color:#3C78E6;">Falsi negativi — le ombre</p>
             <p class="hero-subtitle" style="margin:0;">Contatti reali che il modello non "vede": troppo deboli, troppo locali per emergere. La vicinanza senza relazione.</p>
           </div>
         </div>
+        <p class="hero-subtitle intento" style="margin-top:1rem;">
+          Intento: sbagliare con precisione. Ho cercato la molecola con il metodo più esatto possibile, e la distanza che resta — i fantasmi e le ombre — è ciò che nessun metodo può recuperare. Quella distanza è l'opera.
+        </p>
       </div>
 
       <div class="method-closing">
         <p class="hero-subtitle" style="margin:0 0 0.8rem;">
-          <strong>Il caso decide.</strong> Con un seme diverso, un parametro diverso, più o meno campioni, la rete cambia: alcuni archi appaiono, altri spariscono. Non arbitrariamente — è il comportamento normale di ogni modello statistico — ma realmente. Ogni esecuzione produce un'opera leggermente diversa.
+          <strong>Il caso decide.</strong> Con un seme diverso, un parametro diverso, più o meno campioni, la rete cambia: alcuni legami appaiono, altri spariscono. Ogni esecuzione produce un'opera leggermente diversa — non arbitraria, ma reale.
         </p>
         <p class="hero-subtitle" style="margin:0;">
-          Qui sta la differenza con un'immagine da prompt: il percorso è ancorato a un dato reale e riproducibile <em>fino a un certo punto</em> — poi cominciano le scelte (la soglia, i parametri, il seme, la resa). L'opera è la traccia di quelle scelte. Esiste anche una versione che mostra <strong>solo</strong> lo scarto — solo fantasmi e ombre: è la direzione naturale di questo lavoro.
+          Conosciamo la risposta e la cerchiamo lo stesso, dai dati, con rigore. La perdita è inevitabile <em>e voluta</em>: è la differenza tra una cosa e la sua ombra numerica, mostrata onestamente. Esiste anche una versione che mostra <strong>solo</strong> lo scarto — solo fantasmi e ombre: è la direzione naturale di questo lavoro.
         </p>
       </div>
 
