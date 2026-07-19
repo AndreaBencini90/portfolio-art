@@ -8,13 +8,10 @@ ogDescription: "Dato reale → algoritmo → stima → scarto. Il metodo come pr
 ---
 <style>
   .method-intro { max-width: 760px; }
-  .method-step { border-top: 1px solid rgba(15,23,42,0.12); padding-top: 1.4rem; margin-top: 2rem; }
-  .method-step .step-kicker { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(100 116 139); }
-  .method-step h2 { margin: 0.3rem 0 0.6rem; }
-  .method-closing { margin-top: 2.5rem; padding: 1.4rem 1.6rem; border-left: 3px solid rgba(15,23,42,0.4); background: rgba(15,23,42,0.02); }
   .method-cta-label { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgb(100 116 139); margin: 1.6rem 0 0.7rem; }
   .method-cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 0.4rem; }
   .method-cta-soon { font-size: 0.9rem; color: rgb(100 116 139); border: 1px dashed rgba(15,23,42,0.22); border-radius: 999px; padding: 0.55rem 0.95rem; }
+  .method-closing-line { max-width: 760px; margin-top: 1.6rem; opacity: 0.85; }
 </style>
 
 <main class="main-content">
@@ -26,6 +23,10 @@ ogDescription: "Dato reale → algoritmo → stima → scarto. Il metodo come pr
         Ogni opera nasce da un <strong>dato reale</strong>, non da un prompt. Il percorso è sempre lo stesso, in entrambi i cicli: un dato misurato diventa un grafo, il grafo una stima statistica, la stima un'immagine. In quel percorso ci sono scelte — ed è lì che vive l'autore.
       </p>
 
+      <p class="hero-subtitle method-closing-line">
+        Il processo è ancorato a un dato reale ed è riproducibile fino a un certo punto — poi comincia la scelta, ed è quella la differenza con un'immagine generata da un prompt.
+      </p>
+
       <p class="method-cta-label">Il dettaglio tecnico, collezione per collezione</p>
       <div class="method-cta-row">
         <a class="gjs-t-button primary-button" href="/method/emotion-in-matter/">
@@ -34,45 +35,6 @@ ogDescription: "Dato reale → algoritmo → stima → scarto. Il metodo come pr
         </a>
         <span class="method-cta-soon">Loop SpaceTime · in arrivo</span>
       </div>
-
-      <div class="method-step">
-        <span class="step-kicker">01 — Origine</span>
-        <h2 class="gjs-t-h2 bio-subtitle">Il dato reale</h2>
-        <p class="hero-subtitle">
-          Il punto di partenza è una struttura misurata, non immaginata. Per <em>Emotion in Matter</em> sono le strutture molecolari reali depositate nella Protein Data Bank (coordinate atomiche, spesso da risonanza magnetica nucleare). Per <em>Loop SpaceTime</em>, i modelli della fisica teorica in cui lo spazio-tempo emerge da relazioni discrete.
-        </p>
-      </div>
-
-      <div class="method-step">
-        <span class="step-kicker">02 — Struttura</span>
-        <h2 class="gjs-t-h2 bio-subtitle">L'algoritmo: dal dato al grafo</h2>
-        <p class="hero-subtitle">
-          Il dato viene tradotto in un <strong>grafo</strong>: i nodi sono gli elementi (atomi, residui, punti dello spazio), gli archi le loro relazioni di prossimità o interazione. Non conta l'oggetto isolato, ma la trama delle connessioni. Su questa rete si applicano trasformazioni — come la trasformata di Fourier sul grafo — che portano il segnale nel dominio delle sue relazioni.
-        </p>
-      </div>
-
-      <div class="method-step">
-        <span class="step-kicker">03 — Inferenza</span>
-        <h2 class="gjs-t-h2 bio-subtitle">La stima: ricostruire le relazioni tra i dati</h2>
-        <p class="hero-subtitle">
-          Attraverso modelli statistici (covarianza regolarizzata, GraphicalLasso) si stima quali connessioni sono <em>dirette</em> — quali coppie restano legate anche tenendo conto di tutte le altre. È la fase in cui si prova a ricostruire, dai dati, la mappa di ciò che tiene insieme il sistema.
-        </p>
-      </div>
-
-      <div class="method-step">
-        <span class="step-kicker">04 — Autorialità</span>
-        <h2 class="gjs-t-h2 bio-subtitle">Lo scarto: la mia parte</h2>
-        <p class="hero-subtitle">
-          Tra il dato e l'immagine finale resta uno <strong>scarto</strong>: la scelta della struttura di partenza, dei parametri, del seme casuale; il layout, la palette, il volume e il silenzio di ogni elemento. Questo scarto non è un errore da eliminare: è la decisione dell'autore. È irriducibile, e riconoscibile.
-        </p>
-      </div>
-
-      <div class="method-closing">
-        <p class="hero-subtitle" style="margin:0;">
-          È qui la differenza con l'immagine generata da un prompt. Il processo è ancorato a un dato reale ed è riproducibile fino a un certo punto — poi comincia la scelta. L'opera è la traccia di quella scelta dentro un sistema più ampio.
-        </p>
-      </div>
-
     </div>
   </section>
 </main>
