@@ -7,27 +7,30 @@
   "nav.contact": "Contact",
 
   "concept.meta.title": "Concept | Andrea Bencini",
-  "concept.meta.description": "Concept and poetics by Andrea Bencini: generative art, relationships, uncertainty, complex systems, and emergent geometries inspired by Loop Quantum Gravity.",
+  "concept.meta.description": "Concept and poetics by Andrea Bencini: the invisible relations that give shape to reality, outward in spacetime and inward in emotion.",
 
   "concept.title": "Concept",
-  "concept.subtitle": "Relationships, uncertainty, and emergent geometries: a visual language between art and science.",
+  "concept.subtitle": "The invisible relations that give shape to reality — outward, in spacetime; inward, in emotion.",
 
-  "concept.p1": "My work begins with the study of relationships.",
+  "concept.p1": "My work begins with the study of relations.",
   "concept.p2": "My background as a data scientist led me to analyse complex systems through graphs, networks, and probabilistic models. This way of thinking, more than a technique, has become the structure of my artistic language.",
 
   "concept.p3": "The work takes shape through relational configurations: not as a representation of isolated objects, but as the construction of structures in which elements exist through their interactions. The work does not proceed through predefined images, but through processes.",
   "concept.p4": "Concepts such as uncertainty, emergence, and probability are not illustrated, but enacted. Each work is the result of a temporary balance, one possible configuration within a broader system.",
 
-  "concept.section1.title": "Loop Quantum Gravity",
-  "concept.section1.p1": "The Loop Quantum Gravity series emerges from a dialogue with theoretical physics and the idea that spacetime is not a continuous structure, but arises from discrete relations. Through generative graphs, the works construct maps in which nodes represent fundamental interactions rather than autonomous entities.",
+  "concept.spacetime.title": "Loop SpaceTime — the space that emerges",
+  "concept.spacetime.p1": "In classical physics, space is a given container. In quantum graphity models and in loop quantum gravity, the idea is reversed: space is a graph of relations, and the geometry we perceive is an emergent phenomenon — the statistical result of how the nodes connect.",
+  "concept.spacetime.p2": "I don't simulate physics rigorously: I take its principle — form arises from probable relations — and use it as a generative engine for images.",
 
-  "concept.section2.title": "Relationships",
-  "concept.section2.p1": "I use contemporary conceptual structures to question how systems take shape, organise themselves, and transform.",
+  "concept.emotion.title": "Emotion in Matter — the estimate as the only honest form",
+  "concept.emotion.p1": "I take the most narrated emotion of all — love — and bring it back to its matter: a chemical reaction, molecules that switch on, bind, fold. The enchantment taken apart into its gears.",
+  "concept.emotion.p2": "But here the work turns on itself: I reduce love to chemistry, then to data — and right there I discover that the data doesn't fully capture it. It isn't a cynical disenchantment: it's a deconstruction that leaves an ungraspable residue. That's the heart of the work.",
+  "concept.emotion.p3": "Love is too vast to be explained in full. That's why the only honest representation is an estimate: not a compromise, but the very form of the work.",
 
-  "concept.closing": "Each work is a configuration in which entities gain value through their relationships within a broader system.",
+  "concept.closing": "In both cycles what matters is relation, not essence: form arises from structure. And in both, a discrepancy remains — between the phenomenon and its estimate — which I don't hide: it's the exact point where my gaze stops.",
+  "concept.methodCta": "How I arrive at that estimate, step by step → Method",
 
   "footer.rights": "Andrea Bencini. All rights reserved.",
   "footer.instagram": "Instagram",
-  "footer.behance": "Behance",
   "footer.email": "Email"
 }
