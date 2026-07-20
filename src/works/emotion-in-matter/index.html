@@ -15,8 +15,13 @@ extraCss:
     </div>
   </section>
 
-  <!-- LE OPERE (scorrimento orizzontale, come in home) -->
-  <section class="gallery-section" style="margin-top:1rem;">
+  <!-- LE OPERE (scorrimento orizzontale, come in home, ma quadrate e senza ritagli) -->
+  <style>
+    .eim-gallery .artwork-item { min-width: 320px; }
+    .eim-gallery .artwork-button { width: 320px; aspect-ratio: 1 / 1; }
+    .eim-gallery .artwork-image { object-fit: contain; background: #fff; }
+  </style>
+  <section class="gallery-section eim-gallery" style="margin-top:1rem;">
     <div class="gallery-header">
       <h2 class="gjs-t-h2 gallery-title">Le opere</h2>
       <div class="gallery-controls">
@@ -34,7 +39,7 @@ extraCss:
         <ul class="gallery-list">
           <li class="artwork-item">
             <a class="gjs-t-border artwork-button" style="display:block;" href="/works/emotion-in-matter/verso-una-teoria-dell-approssimazione-dell-amore/il-sincronismo-degli-angoli-nell-attrazione/">
-              <img alt="Il sincronismo degli angoli nell'attrazione" width="360" height="240" loading="lazy" src="/img/emotion-in-matter/LovesPhase_angles_grado_ranking_red_centered.jpg" class="artwork-image" />
+              <img alt="Il sincronismo degli angoli nell'attrazione" width="320" height="320" loading="lazy" src="/img/emotion-in-matter/LovesPhase_angles_grado_ranking_red_centered.jpg" class="artwork-image" />
             </a>
             <div class="artwork-caption">
               <p class="artwork-title">Il sincronismo degli angoli nell'attrazione</p>
@@ -43,7 +48,7 @@ extraCss:
           </li>
           <li class="artwork-item">
             <a class="gjs-t-border artwork-button" style="display:block;" href="/works/emotion-in-matter/verso-una-teoria-dell-approssimazione-dell-amore/l-architettura-dell-attrazione/">
-              <img alt="L'architettura dell'attrazione" width="360" height="240" loading="lazy" src="/img/emotion-in-matter/LovesPhase_gft_grado_ranking_red_green_centered_v2.jpg" class="artwork-image" />
+              <img alt="L'architettura dell'attrazione" width="320" height="320" loading="lazy" src="/img/emotion-in-matter/LovesPhase_gft_grado_ranking_red_green_centered_v2.jpg" class="artwork-image" />
             </a>
             <div class="artwork-caption">
               <p class="artwork-title">L'architettura dell'attrazione</p>
@@ -52,8 +57,6 @@ extraCss:
           </li>
         </ul>
       </div>
-      <div class="gradient-left"></div>
-      <div class="gradient-right"></div>
     </div>
 
     <p class="hero-subtitle" style="margin-top:1rem;">
