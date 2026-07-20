@@ -530,7 +530,7 @@ video {
    ========================================================= */
 .gallery-section {
   padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-bottom: 1.5rem;
 }
 
 .gallery-header {
@@ -605,12 +605,12 @@ video {
 }
 
 .artwork-item {
-  min-width: 360px;
+  min-width: 420px;
   /* scroll-snap-align: start; */
 }
 
 .artwork-button {
-  width: 360px;
+  width: 420px;
   aspect-ratio: 3/2;
   background-color: rgb(255 255 255 / 1);
   box-shadow: 0 0 0 0px #fff, 0 0 0 calc(1px + 0px) rgba(1, 2, 3, 0.5), 0 0 #0000;
@@ -963,11 +963,11 @@ video {
   }
 
   .artwork-item {
-    min-width: 260px;
+    min-width: 300px;
   }
 
   .artwork-button {
-    width: 260px;
+    width: 300px;
   }
 
   .footer-container {
