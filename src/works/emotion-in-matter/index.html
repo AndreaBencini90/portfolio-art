@@ -8,6 +8,17 @@ ogDescription: "La neurochimica del sentire tradotta in grafi: la serie Le Otto 
 extraCss:
   - /collection/collectionStyle.css
 ---
+<style>
+  .deep-link { width: min(1100px, calc(100% - 40px)); margin: 2.5rem auto 0; display: block;
+    text-decoration: none; color: inherit; border: 1px solid rgba(15,23,42,0.14); border-radius: 16px;
+    padding: 1.2rem 1.4rem; transition: border-color 160ms ease, transform 160ms ease; }
+  .deep-link:hover { border-color: rgba(15,23,42,0.30); transform: translateY(-2px); }
+  .deep-link .deep-kicker { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(100 116 139); }
+  .deep-link h2 { margin: 0.3rem 0 0.3rem; font-size: 1.15rem; }
+  .deep-link p { margin: 0; opacity: 0.8; font-size: 0.95rem; }
+  .deep-link .deep-cta { display: inline-block; margin-top: 0.6rem; font-weight: 600; }
+</style>
+
 <main class="main-content">
   <section class="hero-section">
     <div class="hero-container">
@@ -15,75 +26,11 @@ extraCss:
     </div>
   </section>
 
-  <!-- LE OPERE (scorrimento orizzontale, come in home, ma quadrate e senza ritagli) -->
-  <style>
-    .eim-gallery .artwork-item { min-width: 360px; }
-    .eim-gallery .artwork-button { width: 360px; aspect-ratio: 1 / 1; }
-    .eim-gallery .artwork-image { object-fit: contain; background: #fff; }
-  </style>
-  <section class="gallery-section eim-gallery" style="margin-top:1rem;">
-    <div class="gallery-header">
-      <h2 class="gjs-t-h2 gallery-title">Le opere</h2>
-      <div class="gallery-controls">
-        <button type="button" aria-label="Scorri a sinistra" id="scrollLeftBtn" class="gallery-arrow-left">
-          <img alt="" width="18" height="18" src="https://api.iconify.design/lucide-chevron-left.svg?color=%23112233" />
-        </button>
-        <button type="button" aria-label="Scorri a destra" id="scrollRightBtn" class="gallery-arrow-right">
-          <img alt="" width="18" height="18" src="https://api.iconify.design/lucide-chevron-right.svg?color=%23112233" />
-        </button>
-      </div>
-    </div>
-
-    <div class="gallery-wrapper">
-      <div id="galleryScroller" class="gallery-scroller">
-        <ul class="gallery-list">
-          <li class="artwork-item">
-            <a class="gjs-t-border artwork-button" style="display:block;" href="/works/emotion-in-matter/verso-una-teoria-dell-approssimazione-dell-amore/il-sincronismo-degli-angoli-nell-attrazione/">
-              <img alt="Il sincronismo degli angoli nell'attrazione" width="320" height="320" loading="lazy" src="/img/emotion-in-matter/LovesPhase_angles_grado_ranking_red_centered.jpg" class="artwork-image" />
-            </a>
-            <div class="artwork-caption">
-              <p class="artwork-title">Il sincronismo degli angoli nell'attrazione</p>
-              <p class="artwork-meta">2026 · Stampa su tela · 100×100</p>
-            </div>
-          </li>
-          <li class="artwork-item">
-            <a class="gjs-t-border artwork-button" style="display:block;" href="/works/emotion-in-matter/verso-una-teoria-dell-approssimazione-dell-amore/l-architettura-dell-attrazione/">
-              <img alt="L'architettura dell'attrazione" width="320" height="320" loading="lazy" src="/img/emotion-in-matter/LovesPhase_gft_grado_ranking_red_green_centered_v2.jpg" class="artwork-image" />
-            </a>
-            <div class="artwork-caption">
-              <p class="artwork-title">L'architettura dell'attrazione</p>
-              <p class="artwork-meta">2026 · Stampa su tela · 100×100</p>
-            </div>
-          </li>
-          <li class="artwork-item">
-            <a class="gjs-t-border artwork-button" style="display:block;" href="/works/emotion-in-matter/attrazione-tra-realta-e-stima/">
-              <img alt="Attrazione: tra Realtà e Stima" width="320" height="320" loading="lazy" src="/img/emotion-in-matter/LovesPhase_gft_grado_ranking_full_error.jpg" class="artwork-image" />
-            </a>
-            <div class="artwork-caption">
-              <p class="artwork-title">Attrazione: tra Realtà e Stima</p>
-              <p class="artwork-meta">2026 · Stampa su tela · 100×100</p>
-            </div>
-          </li>
-          <li class="artwork-item">
-            <a class="gjs-t-border artwork-button" style="display:block;" href="/works/emotion-in-matter/verso-una-teoria-dell-approssimazione-dell-amore/proiettare-la-forma-del-mondo/">
-              <img alt="Proiettare la forma del mondo" width="320" height="320" loading="lazy" src="/img/emotion-in-matter/LovesPhase_angles_error.jpg" class="artwork-image" />
-            </a>
-            <div class="artwork-caption">
-              <p class="artwork-title">Proiettare la forma del mondo</p>
-              <p class="artwork-meta">2026 · Stampa su tela · 100×100</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <p class="hero-subtitle" style="margin-top:1rem;">
-      <a class="gjs-t-link" href="/works/emotion-in-matter/verso-una-teoria-dell-approssimazione-dell-amore/">Esplora la serie completa →</a>
-    </p>
-  </section>
+  {% include "emotion-in-matter-gallery.njk" %}
 
   <section class="hero-section" style="padding-top: 1.5rem;">
     <div class="hero-container">
+      <h2 class="gjs-t-h2">Cosa siamo?</h2>
       <p class="hero-subtitle">
         E se la nostra essenza non fosse altro che una <strong>reazione chimica</strong>?
       </p>
@@ -184,4 +131,11 @@ extraCss:
       </p>
     </div>
   </section>
+
+  <a class="deep-link" href="/method/emotion-in-matter/">
+    <span class="deep-kicker">Il processo</span>
+    <h2>Come funziona il metodo</h2>
+    <p>Da una molecola a un grafo: la pipeline statistica che trasforma peptidi in reti di relazioni. I quattro passi del processo.</p>
+    <span class="deep-cta">Scopri →</span>
+  </a>
 </main>

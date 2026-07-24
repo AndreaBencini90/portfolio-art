@@ -1,0 +1,44 @@
+{% set eimSize = eimGallerySize or 360 %}
+<style>
+  .eim-gallery-{{ eimSize }} .artwork-item { min-width: {{ eimSize }}px; }
+  .eim-gallery-{{ eimSize }} .artwork-button { width: {{ eimSize }}px; aspect-ratio: 1 / 1; }
+  .eim-gallery-{{ eimSize }} .artwork-image { object-fit: contain; background: #fff; }
+</style>
+<section class="gallery-section eim-gallery eim-gallery-{{ eimSize }}" style="margin-top:1rem;">
+  <div class="gallery-header">
+    <h2 class="gjs-t-h2 gallery-title">{% if lang == "en" %}The works{% else %}Le opere{% endif %}</h2>
+    <div class="gallery-controls">
+      <button type="button" aria-label="{% if lang == 'en' %}Scroll left{% else %}Scorri a sinistra{% endif %}" id="scrollLeftBtn" class="gallery-arrow-left">
+        <img alt="" width="18" height="18" src="https://api.iconify.design/lucide-chevron-left.svg?color=%23112233" />
+      </button>
+      <button type="button" aria-label="{% if lang == 'en' %}Scroll right{% else %}Scorri a destra{% endif %}" id="scrollRightBtn" class="gallery-arrow-right">
+        <img alt="" width="18" height="18" src="https://api.iconify.design/lucide-chevron-right.svg?color=%23112233" />
+      </button>
+    </div>
+  </div>
+
+  <div class="gallery-wrapper">
+    <div id="galleryScroller" class="gallery-scroller">
+      <ul class="gallery-list">
+        {% for w in emotionInMatterWorks %}
+        <li class="artwork-item">
+          <a class="gjs-t-border artwork-button" style="display:block;" href="{% if lang == 'en' %}{{ w.urlEn }}{% else %}{{ w.urlIt }}{% endif %}">
+            <img alt="{% if lang == 'en' %}{{ w.titleEn }}{% else %}{{ w.titleIt }}{% endif %}" width="320" height="320" loading="lazy" src="{{ w.image }}" class="artwork-image" />
+          </a>
+          <div class="artwork-caption">
+            <p class="artwork-title">{% if lang == 'en' %}{{ w.titleEn }}{% else %}{{ w.titleIt }}{% endif %}</p>
+            <p class="artwork-meta">{{ w.year }} · {% if lang == 'en' %}Print on canvas{% else %}Stampa su tela{% endif %} · 100×100</p>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:1.8rem;">
+    <a href="{% if lang == 'en' %}/en/works/emotion-in-matter/toward-a-theory-of-love-approximation/{% else %}/works/emotion-in-matter/verso-una-teoria-dell-approssimazione-dell-amore/{% endif %}" class="gjs-t-button primary-button">
+      <span>{% if lang == 'en' %}Explore the full series{% else %}Esplora la serie completa{% endif %}</span>
+      <img alt="" width="16" height="16" src="https://api.iconify.design/lucide-arrow-right.svg?color=white" class="icon-arrow-right" />
+    </a>
+  </div>
+</section>

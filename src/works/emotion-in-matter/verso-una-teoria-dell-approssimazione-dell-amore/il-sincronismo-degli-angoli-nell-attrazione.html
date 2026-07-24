@@ -18,6 +18,7 @@ ogImage: /img/emotion-in-matter/LovesPhase_angles_grado_ranking_red_centered.jpg
   .artwork-discourse p { margin-bottom: 1.1rem; }
   .artwork-note { width: min(900px, calc(100% - 40px)); margin: 0 auto 1.1rem; font-size: 0.92rem; opacity: 0.75; font-style: italic; }
 </style>
+{% set eimGallerySize = 200 %}
 
 <main class="main-content">
   <section class="hero-section">
@@ -77,4 +78,6 @@ ogImage: /img/emotion-in-matter/LovesPhase_angles_grado_ranking_red_centered.jpg
 
     <p class="hero-subtitle">Perché ogni ricerca comincia così: cercando una forma per ciò che non sappiamo ancora vedere.</p>
   </div>
+
+  {% include "emotion-in-matter-gallery.njk" %}
 </main>

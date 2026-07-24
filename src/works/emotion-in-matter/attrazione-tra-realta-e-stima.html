@@ -17,6 +17,7 @@ extraCss:
     .opere-gallery .artwork-button { width: 280px; }
   }
 </style>
+{% set eimGallerySize = 200 %}
 
 <main class="main-content">
   <section class="hero-section">
@@ -94,4 +95,6 @@ extraCss:
       </p>
     </div>
   </section>
+
+  {% include "emotion-in-matter-gallery.njk" %}
 </main>

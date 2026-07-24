@@ -8,6 +8,17 @@ ogDescription: "The neurochemistry of feeling translated into graphs: the Eight 
 extraCss:
   - /collection/collectionStyle.css
 ---
+<style>
+  .deep-link { width: min(1100px, calc(100% - 40px)); margin: 2.5rem auto 0; display: block;
+    text-decoration: none; color: inherit; border: 1px solid rgba(15,23,42,0.14); border-radius: 16px;
+    padding: 1.2rem 1.4rem; transition: border-color 160ms ease, transform 160ms ease; }
+  .deep-link:hover { border-color: rgba(15,23,42,0.30); transform: translateY(-2px); }
+  .deep-link .deep-kicker { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(100 116 139); }
+  .deep-link h2 { margin: 0.3rem 0 0.3rem; font-size: 1.15rem; }
+  .deep-link p { margin: 0; opacity: 0.8; font-size: 0.95rem; }
+  .deep-link .deep-cta { display: inline-block; margin-top: 0.6rem; font-weight: 600; }
+</style>
+
 <main class="main-content">
   <section class="hero-section">
     <div class="hero-container">
@@ -15,75 +26,11 @@ extraCss:
     </div>
   </section>
 
-  <!-- THE WORKS (horizontal scroll, like on the home page, but square and uncropped) -->
-  <style>
-    .eim-gallery .artwork-item { min-width: 360px; }
-    .eim-gallery .artwork-button { width: 360px; aspect-ratio: 1 / 1; }
-    .eim-gallery .artwork-image { object-fit: contain; background: #fff; }
-  </style>
-  <section class="gallery-section eim-gallery" style="margin-top:1rem;">
-    <div class="gallery-header">
-      <h2 class="gjs-t-h2 gallery-title">The works</h2>
-      <div class="gallery-controls">
-        <button type="button" aria-label="Scroll left" id="scrollLeftBtn" class="gallery-arrow-left">
-          <img alt="" width="18" height="18" src="https://api.iconify.design/lucide-chevron-left.svg?color=%23112233" />
-        </button>
-        <button type="button" aria-label="Scroll right" id="scrollRightBtn" class="gallery-arrow-right">
-          <img alt="" width="18" height="18" src="https://api.iconify.design/lucide-chevron-right.svg?color=%23112233" />
-        </button>
-      </div>
-    </div>
-
-    <div class="gallery-wrapper">
-      <div id="galleryScroller" class="gallery-scroller">
-        <ul class="gallery-list">
-          <li class="artwork-item">
-            <a class="gjs-t-border artwork-button" style="display:block;" href="/en/works/emotion-in-matter/toward-a-theory-of-love-approximation/the-synchronism-of-angles-in-attraction/">
-              <img alt="The Synchronism of Angles in Attraction" width="320" height="320" loading="lazy" src="/img/emotion-in-matter/LovesPhase_angles_grado_ranking_red_centered.jpg" class="artwork-image" />
-            </a>
-            <div class="artwork-caption">
-              <p class="artwork-title">The Synchronism of Angles in Attraction</p>
-              <p class="artwork-meta">2026 · Print on canvas · 100×100</p>
-            </div>
-          </li>
-          <li class="artwork-item">
-            <a class="gjs-t-border artwork-button" style="display:block;" href="/en/works/emotion-in-matter/toward-a-theory-of-love-approximation/the-architecture-of-attraction/">
-              <img alt="The Architecture of Attraction" width="320" height="320" loading="lazy" src="/img/emotion-in-matter/LovesPhase_gft_grado_ranking_red_green_centered_v2.jpg" class="artwork-image" />
-            </a>
-            <div class="artwork-caption">
-              <p class="artwork-title">The Architecture of Attraction</p>
-              <p class="artwork-meta">2026 · Print on canvas · 100×100</p>
-            </div>
-          </li>
-          <li class="artwork-item">
-            <a class="gjs-t-border artwork-button" style="display:block;" href="/en/works/emotion-in-matter/attraction-between-reality-and-estimation/">
-              <img alt="Attraction: Between Reality and Estimation" width="320" height="320" loading="lazy" src="/img/emotion-in-matter/LovesPhase_gft_grado_ranking_full_error.jpg" class="artwork-image" />
-            </a>
-            <div class="artwork-caption">
-              <p class="artwork-title">Attraction: Between Reality and Estimation</p>
-              <p class="artwork-meta">2026 · Print on canvas · 100×100</p>
-            </div>
-          </li>
-          <li class="artwork-item">
-            <a class="gjs-t-border artwork-button" style="display:block;" href="/en/works/emotion-in-matter/toward-a-theory-of-love-approximation/projecting-the-shape-of-the-world/">
-              <img alt="Projecting the Shape of the World" width="320" height="320" loading="lazy" src="/img/emotion-in-matter/LovesPhase_angles_error.jpg" class="artwork-image" />
-            </a>
-            <div class="artwork-caption">
-              <p class="artwork-title">Projecting the Shape of the World</p>
-              <p class="artwork-meta">2026 · Print on canvas · 100×100</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <p class="hero-subtitle" style="margin-top:1rem;">
-      <a class="gjs-t-link" href="/en/works/emotion-in-matter/toward-a-theory-of-love-approximation/">Explore the full series →</a>
-    </p>
-  </section>
+  {% include "emotion-in-matter-gallery.njk" %}
 
   <section class="hero-section">
     <div class="hero-container">
+      <h2 class="gjs-t-h2">What are we?</h2>
       <p class="hero-subtitle">
         What if our essence were nothing but a <strong>chemical reaction</strong>?
       </p>
@@ -184,4 +131,11 @@ extraCss:
       </p>
     </div>
   </section>
+
+  <a class="deep-link" href="/en/method/emotion-in-matter/">
+    <span class="deep-kicker">The Process</span>
+    <h2>How the method works</h2>
+    <p>From a molecule to a graph: the statistical pipeline that transforms peptides into networks of relations. The four steps of the process.</p>
+    <span class="deep-cta">Discover →</span>
+  </a>
 </main>

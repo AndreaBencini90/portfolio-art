@@ -18,6 +18,7 @@ ogImage: /img/emotion-in-matter/LovesPhase_angles_error.jpg
   .artwork-discourse p { margin-bottom: 1.1rem; }
   .artwork-note { width: min(900px, calc(100% - 40px)); margin: 0 auto 1.1rem; font-size: 0.92rem; opacity: 0.75; font-style: italic; }
 </style>
+{% set eimGallerySize = 200 %}
 
 <main class="main-content">
   <section class="hero-section">
@@ -57,4 +58,6 @@ ogImage: /img/emotion-in-matter/LovesPhase_angles_error.jpg
       Anche guardare è piegarsi in un angolo. E ogni sguardo, piegandosi, decide cosa diventa ponte, cosa resta muro, e cosa — semplicemente — non vede.
     </p>
   </div>
+
+  {% include "emotion-in-matter-gallery.njk" %}
 </main>
